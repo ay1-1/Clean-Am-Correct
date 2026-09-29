@@ -1,0 +1,6 @@
+{
+  "name": "Clean Am Correct",
+  "description": "Professional cleaning services in Ikorodu, Lagos. Clean Am Correct provides residential, commercial, deep cleaning, and move-in/move-out services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

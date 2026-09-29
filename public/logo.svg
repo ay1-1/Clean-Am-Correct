@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="500" height="500" rx="36" fill="#38B6FF" />
+
+  <!-- Logo Mark Group -->
+  <g transform="translate(0, -10)">
+    <!-- Sparkles -->
+    <!-- Top-left sparkle -->
+    <path d="M 226 148 Q 226 160 214 160 Q 226 160 226 172 Q 226 160 238 160 Q 226 160 226 148 Z" fill="#FFFFFF" />
+    <!-- Lower-left sparkle -->
+    <path d="M 200 212 Q 200 220 192 220 Q 200 220 200 228 Q 200 220 208 220 Q 200 220 200 212 Z" fill="#FFFFFF" />
+    <!-- Upper-right sparkle -->
+    <path d="M 288 176 Q 288 185 280 185 Q 288 185 288 194 Q 288 185 296 185 Q 288 185 288 176 Z" fill="#FFFFFF" />
+    <!-- Far-right sparkle -->
+    <path d="M 314 212 Q 314 221 305 221 Q 314 221 314 230 Q 314 221 323 221 Q 314 221 314 212 Z" fill="#FFFFFF" />
+
+    <!-- Orbital Ring Swoosh -->
+    <!-- Outer ellipse curve sweeping around broom -->
+    <path d="M 240 170 C 185 174 150 205 150 238 C 150 274 195 298 256 298 C 298 298 335 287 348 270 C 354 262 355 253 350 244 C 342 232 322 221 292 214 C 291 219 288 225 286 230 C 314 237 334 247 337 257 C 339 265 330 273 306 279 C 275 287 230 288 188 278 C 162 272 161 254 167 243 C 176 226 206 206 250 194 C 251 185 251 177 252 170 C 248 170 244 170 240 170 Z" fill="#FFFFFF" />
+
+    <!-- Sweeping lower flourish tail on ring -->
+    <path d="M 264 290 C 276 295 285 297 292 299 L 285 287 C 277 288 270 289 264 290 Z" fill="#FFFFFF" />
+
+    <!-- Broom Handle -->
+    <rect x="250" y="104" width="15" height="95" rx="7.5" fill="#FFFFFF" />
+    
+    <!-- Broom Collar -->
+    <path d="M 240 198 C 240 192 245 188 257 188 C 270 188 275 192 275 198 L 285 218 C 285 220 282 222 278 222 L 237 222 C 233 222 230 220 230 218 Z" fill="#FFFFFF" />
+
+    <!-- Broom Head Bristles with Natural Sweep -->
+    <path d="M 235 224 L 280 224 L 293 252 C 295 258 291 264 285 264 L 281 264 C 278 261 274 256 269 264 L 253 264 C 249 257 245 258 240 264 L 219 264 C 205 264 190 262 195 254 Z" fill="#FFFFFF" />
+    
+    <!-- Bristle detail grooves (sky blue negative space) -->
+    <path d="M 226 244 L 233 263 M 248 238 L 252 263 M 266 238 L 268 263 M 279 244 L 278 263" stroke="#38B6FF" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Typography -->
+  <!-- Clean Am (High-contrast Serif) -->
+  <text
+    x="250"
+    y="358"
+    text-anchor="middle"
+    fill="#FFFFFF"
+    font-family="'Playfair Display', 'Times New Roman', Georgia, serif"
+    font-size="64"
+    font-weight="800"
+    letter-spacing="-1.5"
+  >
+    Clean Am
+  </text>
+
+  <!-- Correct (Fluid Brush Script) -->
+  <text
+    x="255"
+    y="422"
+    text-anchor="middle"
+    fill="#FFFFFF"
+    font-family="'Dancing Script', 'Brush Script MT', 'Great Vibes', cursive"
+    font-size="68"
+    font-weight="700"
+    letter-spacing="0.5"
+  >
+    Correct
+  </text>
+</svg>
