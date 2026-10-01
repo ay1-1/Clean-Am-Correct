@@ -15,9 +15,9 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   businessName: 'Clean Am Correct',
-  tagline: 'Cleaner Spaces. Healthier Lives.',
+  tagline: 'Your Space. Clean & Correct.',
   supportingCopy:
-    'Professional cleaning services designed to give your home or business a fresher, cleaner and more comfortable space in Ikorodu, Lagos.',
+    'Reliable cleaning services for homes, offices and businesses in Ikorodu. From apartments to duplexes and workspaces, we help keep your space clean, fresh and comfortable.',
   location: 'Ikorodu, Lagos, Nigeria',
   city: 'Ikorodu',
   state: 'Lagos State',

@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-            Direct Dispatch
+            Contact & Booking
           </span>
           <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold text-[#032b69] tracking-tight uppercase leading-none">
             Book An{' '}
@@ -51,7 +51,7 @@ export const ContactSection: React.FC = () => {
             </span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
-            Submit your requirements below to generate a tailored WhatsApp booking message, or reach out directly to our Ikorodu team.
+            Fill in your details below to send a WhatsApp booking request, or call our Ikorodu team directly.
           </p>
         </div>
 
@@ -60,10 +60,10 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 bg-[#032b69] text-white rounded-[32px] p-8 sm:p-10 shadow-xl relative overflow-hidden bg-grid-dots">
             <div className="relative z-10">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#38b6ff] block mb-2">
-                Ikorodu Headquarters
+                Clean Am Correct
               </span>
               <h3 className="font-editorial-heading text-2xl sm:text-3xl font-extrabold uppercase text-white mb-3">
-                Clean Am Correct
+                Ikorodu, Lagos
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-8">
                 Professional cleaning services designed to give your home or business a fresher, cleaner, and more comfortable environment.
@@ -75,9 +75,9 @@ export const ContactSection: React.FC = () => {
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Location</span>
+                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Areas Covered</span>
                     <p className="font-semibold text-white mt-0.5">Ikorodu, Lagos, Nigeria</p>
-                    <p className="text-[11px] text-slate-300 mt-0.5">Ebute, Agric, Ogolonto, Igbogbo & Lagos Mainland</p>
+                    <p className="text-[11px] text-slate-300 mt-0.5">Ebute, Agric, Ogolonto, Igbogbo, Town & Lagos Mainland</p>
                   </div>
                 </div>
 
@@ -86,7 +86,7 @@ export const ContactSection: React.FC = () => {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Phone & WhatsApp</span>
+                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Call or WhatsApp</span>
                     <a
                       href={`tel:${siteConfig.phoneRaw}`}
                       className="font-bold text-white text-base hover:text-[#38b6ff] transition-colors mt-0.5 block"
@@ -101,7 +101,7 @@ export const ContactSection: React.FC = () => {
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Hours</span>
+                    <span className="text-[10px] uppercase text-sky-200 font-bold tracking-wider block">Working Hours</span>
                     <p className="font-medium text-white mt-0.5">{siteConfig.operatingHours}</p>
                   </div>
                 </div>
@@ -125,10 +125,10 @@ export const ContactSection: React.FC = () => {
           {/* RIGHT: Booking Form */}
           <div className="lg:col-span-7 bg-white rounded-[32px] p-8 sm:p-10 border border-slate-200/90 shadow-lg">
             <h3 className="font-editorial-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-[#032b69] mb-1">
-              Request Appointment Quote
+              Tell Us What You Need Cleaned
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mb-6">
-              Complete the form below. Clicking <strong className="text-[#032b69]">Send via WhatsApp</strong> immediately formats and opens your inquiry on WhatsApp.
+              When you click <strong className="text-[#032b69]">Send via WhatsApp</strong>, it opens WhatsApp with your details so we can give you a quick quote and schedule your clean.
             </p>
 
             {submitted && (
@@ -137,14 +137,14 @@ export const ContactSection: React.FC = () => {
                 <div className="text-xs sm:text-sm">
                   <p className="font-bold">Opening WhatsApp...</p>
                   <p className="text-xs text-emerald-700 mt-0.5">
-                    Your appointment request has been prepared. If WhatsApp didn't open automatically,{' '}
+                    Your appointment message has been prepared. If WhatsApp didn't open automatically,{' '}
                     <a
                       href={siteConfig.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline font-semibold"
                     >
-                      click here to launch WhatsApp
+                      click here to open WhatsApp directly
                     </a>.
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export const ContactSection: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Full Name *
+                    Your Name *
                   </label>
                   <input
                     type="text"
@@ -200,7 +200,7 @@ export const ContactSection: React.FC = () => {
                         {s.title}
                       </option>
                     ))}
-                    <option value="Custom Deep Scrubbing">Custom Deep Scrubbing</option>
+                    <option value="Custom Cleaning Request">Custom Cleaning Request</option>
                   </select>
                 </div>
 
@@ -235,7 +235,7 @@ export const ContactSection: React.FC = () => {
 
                 <div>
                   <label htmlFor="preferredTime" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                    Time Window
+                    Time of Day
                   </label>
                   <select
                     id="preferredTime"
@@ -245,20 +245,19 @@ export const ContactSection: React.FC = () => {
                   >
                     <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
                     <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-                    <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
-                    <option value="Flexible">Flexible</option>
+                    <option value="Flexible">Flexible / Anytime</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                  Message / Special Details (Optional)
+                  Anything Specific? (Optional)
                 </label>
                 <textarea
                   id="message"
                   rows={3}
-                  placeholder="Tell us about the property condition, floor type, or rooms requiring attention..."
+                  placeholder="e.g. 3-bedroom flat, tiled kitchen needs extra scrubbing, or sofas need vacuuming..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-2xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#38b6ff] focus:border-transparent transition-all resize-none"
@@ -273,6 +272,9 @@ export const ContactSection: React.FC = () => {
                   <Send className="w-4 h-4 text-[#38b6ff]" />
                   <span>Send Booking Request via WhatsApp</span>
                 </button>
+                <p className="text-center text-[11px] text-slate-400 mt-2 font-normal">
+                  No online payment needed here. We will chat with you directly on WhatsApp to confirm details.
+                </p>
               </div>
             </form>
           </div>

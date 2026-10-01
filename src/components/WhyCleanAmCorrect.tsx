@@ -1,32 +1,32 @@
 import React from 'react';
-import { ShieldCheck, Eye, Clock, Calendar, HeartHandshake } from 'lucide-react';
+import { Eye, ShieldCheck, Sparkles, Calendar, HeartHandshake } from 'lucide-react';
 
 export const WhyCleanAmCorrect: React.FC = () => {
   const pillars = [
     {
       icon: Eye,
-      title: 'ATTENTION TO DETAIL',
-      desc: 'We clean behind appliances, inside frame crevices, and beneath cushions where ordinary cleaners leave dust behind.',
+      title: 'WE PAY ATTENTION',
+      desc: "We don't rush through the job. We pay attention to the areas that need proper cleaning—corners, baseboards, beneath sofas, and behind appliances.",
     },
     {
       icon: ShieldCheck,
       title: 'RELIABLE SERVICE',
-      desc: 'Disciplined, trustworthy local personnel vetted for your safety, privacy, and peace of mind.',
+      desc: 'We show up on time, do the work properly, and treat your home, property, and family with respect and care.',
     },
     {
-      icon: Clock,
-      title: 'PROFESSIONAL APPROACH',
-      desc: 'Equipped with commercial vacuum systems, clean microfiber sets, and safe, effective surface agents.',
+      icon: Sparkles,
+      title: 'PROPER CLEANING',
+      desc: "We clean beyond what you can see. We remove the hidden dust, scrub the tough stains, and make sure your entire space feels fresh.",
     },
     {
       icon: Calendar,
       title: 'FLEXIBLE BOOKING',
-      desc: 'Morning, afternoon, weekend, or recurring weekly and monthly slots scheduled effortlessly via WhatsApp.',
+      desc: "Need a cleaning appointment? Contact us on WhatsApp and let's arrange a day and time that works best for your schedule.",
     },
     {
       icon: HeartHandshake,
-      title: 'CUSTOMER-FOCUSED',
-      desc: 'Transparent pricing with no unexpected hidden fees, and dedicated follow-through to ensure complete satisfaction.',
+      title: 'GOOD CUSTOMER SERVICE',
+      desc: 'We listen to what you need, explain the process clearly, and make sure you are 100% happy with the finished service.',
     },
   ];
 
@@ -37,7 +37,7 @@ export const WhyCleanAmCorrect: React.FC = () => {
           {/* LEFT: Massive Editorial Heading */}
           <div className="lg:col-span-5 sticky top-28">
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-              The Clean Standard
+              Why Choose Us
             </span>
 
             <h2 className="font-editorial-heading text-5xl sm:text-7xl font-extrabold uppercase text-[#032b69] tracking-tight leading-[0.95]">
@@ -49,7 +49,7 @@ export const WhyCleanAmCorrect: React.FC = () => {
             </h2>
 
             <p className="mt-6 text-sm sm:text-base text-slate-500 font-normal leading-relaxed max-w-sm">
-              We hold ourselves to an uncompromising benchmark of cleanliness. Here is what separates our service in Ikorodu.
+              We take cleaning seriously. Here is why homeowners and businesses around Ikorodu and Lagos trust our team.
             </p>
           </div>
 

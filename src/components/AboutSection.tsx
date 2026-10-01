@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Shield, Heart } from 'lucide-react';
+import { Shield, Heart } from 'lucide-react';
 import { siteImages } from '../data/images';
 import { CleanAmCorrectLogo } from './CleanAmCorrectLogo';
 
@@ -16,18 +16,18 @@ export const AboutSection: React.FC = () => {
             </span>
 
             <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold uppercase text-[#032b69] tracking-tight leading-[1.02]">
-              Our Story &{' '}
+              Who We{' '}
               <span className="font-serif-brand font-bold italic tracking-normal lowercase block text-[#38b6ff] text-5xl sm:text-7xl">
-                philosophy
+                are
               </span>
             </h2>
 
             <p>
-              In our fast-moving communities across Lagos, finding time to maintain an immaculate living space or office can be taxing. Between long commutes, demanding careers, and family priorities, routine domestic scrubbing often becomes a burden.
+              In a busy city like Lagos, keeping a home or workplace spotless is not always easy. Between long commutes, work, school runs, and family commitments, weekends are meant for rest—not spending hours scrubbing tile floors and dusting windows.
             </p>
 
             <p>
-              Clean Am Correct was born out of a clear, disciplined philosophy: to provide reliable, high-standard cleaning services that bring calm, hygiene, and freshness to residential and commercial environments throughout Ikorodu.
+              Clean Am Correct was started right here in Ikorodu to help families, professionals, and business owners enjoy clean, fresh, and comfortable spaces without the stress. We don't cut corners or rush through the work. We clean properly, reliably, and treat your property with complete respect.
             </p>
 
             {/* Micro Feature Callouts */}
@@ -35,31 +35,31 @@ export const AboutSection: React.FC = () => {
               <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
                 <div className="flex items-center gap-2.5 font-bold text-xs uppercase tracking-wider text-[#032b69] mb-1.5">
                   <Shield className="w-4 h-4 text-[#38b6ff]" />
-                  <span>Vetted & Disciplined</span>
+                  <span>Vetted & Trustworthy</span>
                 </div>
                 <p className="text-xs text-slate-500 font-normal leading-relaxed">
-                  Honest, background-checked personnel who respect your home, property, and privacy.
+                  Honest, verified cleaners you can comfortably welcome into your home or office.
                 </p>
               </div>
 
               <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
                 <div className="flex items-center gap-2.5 font-bold text-xs uppercase tracking-wider text-[#032b69] mb-1.5">
                   <Heart className="w-4 h-4 text-[#38b6ff]" />
-                  <span>Client Satisfaction</span>
+                  <span>Customer Satisfaction</span>
                 </div>
                 <p className="text-xs text-slate-500 font-normal leading-relaxed">
-                  We walk through your checklist to ensure no corners or difficult surfaces are missed.
+                  We check through your rooms with you to ensure you are happy with the job.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* RIGHT: Photography with Layered Logo Emblem */}
+          {/* RIGHT: Authentic Nigerian Cleaning Photography with Layered Logo Emblem */}
           <div className="lg:col-span-6 relative">
             <div className="rounded-[36px] overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-slate-900">
               <img
-                src={siteImages.equipment.src}
-                alt="Clean Am Correct professional cleaning gear"
+                src={siteImages.cleanerSofa.src}
+                alt="Clean Am Correct professional cleaner at work in a Nigerian home"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -77,13 +77,13 @@ export const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-slate-200">
           <div className="p-8 rounded-[28px] bg-white border border-slate-200/90 shadow-xs">
             <span className="text-xs font-bold uppercase tracking-widest text-[#38b6ff] block mb-2">
-              01 • Systematic
+              01 • Proper Care
             </span>
             <h3 className="font-editorial-heading text-xl font-bold uppercase text-[#032b69] mb-3">
-              Meticulous Method
+              We Don't Rush
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-              From high ceiling cobweb extraction to deep baseboard sanitizing, every team member follows standardized hygienic checklists suited for each floor type.
+              From removing cobwebs on high ceilings to washing bathroom tiles and cleaning behind the sofa, we do a thorough job every time.
             </p>
           </div>
 
@@ -92,22 +92,22 @@ export const AboutSection: React.FC = () => {
               02 • Punctual
             </span>
             <h3 className="font-editorial-heading text-xl font-bold uppercase text-[#032b69] mb-3">
-              Absolute Reliability
+              We Show Up On Time
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-              We value your schedule. Our team arrives promptly at your chosen appointment time with complete commercial tools ready to execute without delay.
+              We respect your time. Our cleaners arrive promptly at your scheduled time with all equipment and detergents ready to work.
             </p>
           </div>
 
           <div className="p-8 rounded-[28px] bg-white border border-slate-200/90 shadow-xs">
             <span className="text-xs font-bold uppercase tracking-widest text-[#38b6ff] block mb-2">
-              03 • Local Care
+              03 • Based in Ikorodu
             </span>
             <h3 className="font-editorial-heading text-xl font-bold uppercase text-[#032b69] mb-3">
-              Ikorodu Roots
+              Local & Accessible
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-              Centrally based in Ikorodu, Lagos, we understand the local climate, dust accumulation, and road realities, allowing responsive same-day inquiries.
+              Based in Ikorodu, Lagos, we are close to your neighbourhood and can respond quickly for scheduled or urgent cleaning appointments.
             </p>
           </div>
         </div>

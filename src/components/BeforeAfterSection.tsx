@@ -20,47 +20,47 @@ export const BeforeAfterSection: React.FC = () => {
   const pairs: ComparisonPair[] = [
     {
       id: 'living',
-      title: 'Living Room',
-      beforeLabel: 'Dusty, Dull & Cluttered',
-      afterLabel: 'Deep Cleaned & Sanitized',
+      title: 'Living Room Parlour',
+      beforeLabel: 'Dusty, Untidy & Cluttered',
+      afterLabel: 'Properly Cleaned & Fresh',
       description:
-        'Sofa vacuuming, dust elimination from light cornices, sanitized touchpoints, and polished wooden flooring.',
+        'Sofa vacuumed, dust removed from the TV console and windows, and ceramic tile floor mopped spotless.',
       image: siteImages.heroLiving.src,
     },
     {
       id: 'kitchen',
-      title: 'Kitchen Backsplash & Counters',
-      beforeLabel: 'Cooking Residue & Grease',
-      afterLabel: 'Sparkling Quartz & Tile',
+      title: 'Tiled Kitchen',
+      beforeLabel: 'Cooker Grease & Stains',
+      afterLabel: 'Clean Tiles & Sparkling Sink',
       description:
-        'Intensive stovetop degreasing, descaled stainless sink, sanitized counters, and spotless tile surfaces.',
+        'Cooker surroundings degreased, double sink cleaned, wall tiles wiped down, and food splatters removed.',
       image: siteImages.kitchen.src,
     },
     {
       id: 'bathroom',
-      title: 'Luxury Bathroom Detailing',
-      beforeLabel: 'Limescale & Water Spots',
-      afterLabel: 'Crystal Clear Marble & Glass',
+      title: 'Tiled Bathroom',
+      beforeLabel: 'Water Stains & Dirty Grout',
+      afterLabel: 'Descaled & Sanitized',
       description:
-        'Descaling glass shower screens, scrubbing grout lines, toilet disinfection, and gleaming chrome fixtures.',
+        'Ceramic wall tiles scrubbed, toilet bowl disinfected, taps descaled, and floor washed clean.',
       image: siteImages.bathroom.src,
     },
     {
-      id: 'rugs',
-      title: 'Carpet & Rug Restoration',
-      beforeLabel: 'Trapped Dust & Pet Dander',
-      afterLabel: 'HEPA Extracted & Revitalized',
+      id: 'sofa',
+      title: 'Sofa & Floor Care',
+      beforeLabel: 'Trapped Dust & Sand',
+      afterLabel: 'Properly Vacuumed & Mopped',
       description:
-        'Commercial vacuum extraction removing deep embedded fibers, grit, allergens, and refreshing fiber luster.',
-      image: siteImages.vacuumCleaner.src,
+        'Vacuuming deep between sofa cushions to remove Lagos road dust, and mopping floor tiles to a clean shine.',
+      image: siteImages.cleanerSofa.src,
     },
     {
       id: 'office',
-      title: 'Corporate Executive Office',
-      beforeLabel: 'Fingerprints & Clutter',
-      afterLabel: 'Pristine Meeting Readiness',
+      title: 'Office Workspace',
+      beforeLabel: 'Messy Desks & Fingerprints',
+      afterLabel: 'Tidy & Ready for Business',
       description:
-        'Streak-free glass doors, sanitized keyboards, dusted monitors, and immaculate reception flooring.',
+        'Computer desks dusted, glass doors wiped, waste bins emptied, and reception floor properly mopped.',
       image: siteImages.commercial.src,
     },
   ];
@@ -91,7 +91,7 @@ export const BeforeAfterSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-            Proof of Craftsmanship
+            Real Transformations
           </span>
           <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold text-[#032b69] tracking-tight uppercase leading-none">
             Before &{' '}
@@ -100,7 +100,7 @@ export const BeforeAfterSection: React.FC = () => {
             </span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
-            Drag the comparison divider to experience the transformative power of the Clean Am Correct method.
+            Drag the slider across to see how we turn dusty, untidy spaces into fresh, comfortable rooms.
           </p>
         </div>
 
@@ -135,7 +135,7 @@ export const BeforeAfterSection: React.FC = () => {
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
           >
-            {/* AFTER IMAGE (Base layer: full clarity Clean Am Correct) */}
+            {/* AFTER IMAGE (Clean Am Correct clean result) */}
             <img
               src={currentPair.image}
               alt={`${currentPair.title} - After cleaning`}
@@ -143,7 +143,7 @@ export const BeforeAfterSection: React.FC = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
 
-            {/* BEFORE IMAGE (Clipped overlay: dimmed, dusty, desaturated) */}
+            {/* BEFORE IMAGE (Clipped overlay: dimmed, dusty state of same space) */}
             <div
               className="absolute inset-y-0 left-0 overflow-hidden"
               style={{ width: `${sliderPosition}%` }}
@@ -180,7 +180,7 @@ export const BeforeAfterSection: React.FC = () => {
 
             {/* Instruction tooltip */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-medium text-white pointer-events-none flex items-center gap-1.5">
-              <span>Drag divider left or right</span>
+              <span>Drag slider left or right</span>
             </div>
           </div>
 

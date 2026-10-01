@@ -71,27 +71,27 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onOpenBooking }) 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* ================= LEFT COLUMN: EDITORIAL TYPOGRAPHY & CTAs ================= */}
           <div className="lg:col-span-6 flex flex-col items-start text-left z-20">
-            {/* Eyebrow badge matching reference */}
+            {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 mb-6">
               <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#38b6ff] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/10">
-                Premium Cleaning Service • Ikorodu
+                Cleaning Services in Ikorodu, Lagos
               </span>
             </div>
 
             {/* Oversized Editorial Heading */}
             <h1 className="font-editorial-heading text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight uppercase leading-[0.98] text-balance">
-              Cleaner Spaces,{' '}
+              Your Space.{' '}
               <span className="font-serif-brand font-bold italic tracking-normal lowercase block text-[#38b6ff] mt-1 sm:mt-2 text-5xl sm:text-7xl xl:text-8xl">
-                better living.
+                clean & correct.
               </span>
             </h1>
 
             {/* Supporting Copy */}
             <p className="mt-6 text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-lg text-balance">
-              Professional cleaning services for homes and businesses in Ikorodu, Lagos. Handled with meticulous care, hygienic precision, and reliable staff.
+              From homes to offices, we help keep your space clean, fresh and comfortable. Reliable cleaning services around Ikorodu with trusted staff and zero stress.
             </p>
 
-            {/* Editorial CTAs (Pill style matching reference) */}
+            {/* Editorial CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <a
                 href={siteConfig.whatsappLink}
@@ -107,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onOpenBooking }) 
                 onClick={onExploreServices}
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase text-white bg-white/5 hover:bg-white/10 border border-white/25 active:scale-95 transition-all whitespace-nowrap"
               >
-                <span>Explore Services</span>
+                <span>See Our Services</span>
               </button>
             </div>
 
@@ -119,7 +119,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onOpenBooking }) 
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#38b6ff]" />
-                <span className="font-medium">Vetted Local Cleaners</span>
+                <span className="font-medium">Trusted Ikorodu Cleaners</span>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onOpenBooking }) 
                 <div className="absolute inset-0 bg-[#032b69]/40" />
               </div>
 
-              {/* CENTER ACTIVE CARD (Prominent, crisp white border, shadow-2xl) */}
+              {/* CENTER ACTIVE CARD */}
               <div className="relative w-[72%] sm:w-[76%] h-[92%] sm:h-[95%] rounded-[28px] sm:rounded-[34px] overflow-hidden border-4 border-white shadow-2xl z-20 transition-all duration-500 bg-slate-900 group">
                 <img
                   key={activeIndex}
@@ -199,7 +199,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onOpenBooking }) 
 
             {/* Carousel Navigation Controls Below Stack */}
             <div className="mt-6 flex items-center justify-between w-full max-w-[420px] px-2">
-              {/* Prev / Next Arrows */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}

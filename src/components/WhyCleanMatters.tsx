@@ -1,23 +1,23 @@
 import React from 'react';
-import { Sparkles, Wind, Smile } from 'lucide-react';
+import { Wind, Calendar, Sparkles } from 'lucide-react';
 import { siteImages } from '../data/images';
 
 export const WhyCleanMatters: React.FC = () => {
   const points = [
     {
       icon: Wind,
-      title: 'LESS BUILD-UP',
-      desc: 'Routine dusting and high-filtration vacuuming capture microscopic grit, road soot, and pet dander before they settle deep into fabrics.',
+      title: 'WHY DOES DUST BUILD UP SO QUICKLY?',
+      desc: 'With road dust, open windows, daily foot traffic and dry season breeze in Lagos, homes and furniture gather dust faster than we expect. Regular vacuuming and dusting keep the air in your rooms fresh.',
+    },
+    {
+      icon: Calendar,
+      title: 'HOW OFTEN SHOULD YOU CLEAN?',
+      desc: 'The right cleaning routine depends on how many people use the space, children, dust levels and your daily schedule. A weekly or bi-weekly routine helps maintain order without overwhelming your weekends.',
     },
     {
       icon: Sparkles,
-      title: 'MORE COMFORT',
-      desc: 'Sanitized ceramic tiles, descaled bathrooms, and clean surfaces create a fresh, tranquil living and working climate.',
-    },
-    {
-      icon: Smile,
-      title: 'A SPACE YOU FEEL GOOD IN',
-      desc: 'Returning to an orderly, pristine environment calms mental clutter and allows you to relax, entertain, or work with total confidence.',
+      title: 'WHY IS DEEP CLEANING IMPORTANT?',
+      desc: 'Some areas need more attention than everyday sweeping and mopping. Deep cleaning tackles the areas that are often missed—behind the fridge, under the sofa, tile grout lines, and bathroom scale.',
     },
   ];
 
@@ -25,12 +25,12 @@ export const WhyCleanMatters: React.FC = () => {
     <section className="py-20 md:py-32 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* LEFT: Large Lifestyle Photograph */}
+          {/* LEFT: Photograph of clean Nigerian bedroom */}
           <div className="lg:col-span-6 relative">
             <div className="rounded-[36px] overflow-hidden shadow-2xl border-4 border-slate-100 aspect-[4/3] bg-slate-100">
               <img
                 src={siteImages.bedroom.src}
-                alt="Immaculate clean bedroom living space"
+                alt="Clean, tidy Nigerian bedroom in Lagos apartment"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -42,15 +42,15 @@ export const WhyCleanMatters: React.FC = () => {
                 Healthy Living
               </span>
               <p className="text-xs text-slate-200 leading-snug">
-                Consistent hygiene supports restorative sleep and fresh indoor breathing.
+                A clean, dust-free bedroom makes resting after a long Lagos day so much easier.
               </p>
             </div>
           </div>
 
-          {/* RIGHT: Editorial Content with 3 Concise Points */}
+          {/* RIGHT: Practical Educational Points */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-              Indoor Wellness & Science
+              Cleaning Tips & Routine
             </span>
 
             <h2 className="font-editorial-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase text-[#032b69] tracking-tight leading-[1.05] mb-6">
@@ -61,10 +61,10 @@ export const WhyCleanMatters: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8">
-              Accumulated dust, road particles, and indoor humidity can contribute to stagnant air and aggravate respiratory discomfort in susceptible individuals. Regular, detailed cleaning systematically eliminates these contaminants.
+              Keeping your space clean is about more than just appearance. It reduces indoor dust, prevents mould in damp bathrooms, and helps you relax properly when you get home from work.
             </p>
 
-            {/* 3 Concise Editorial Points */}
+            {/* 3 Practical Points */}
             <div className="space-y-6">
               {points.map((pt, i) => {
                 const Icon = pt.icon;

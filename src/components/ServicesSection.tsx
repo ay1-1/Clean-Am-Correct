@@ -7,11 +7,11 @@ export const ServicesSection: React.FC = () => {
   return (
     <section id="services" className="py-20 md:py-32 bg-slate-50 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header matching Reference Screenshot 2 */}
+        {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
           <div className="lg:col-span-8">
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-              Curated Services
+              What We Offer
             </span>
             <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold text-[#032b69] tracking-tight uppercase leading-none">
               Clean By{' '}
@@ -24,18 +24,18 @@ export const ServicesSection: React.FC = () => {
 
           <div className="lg:col-span-4">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Our masterfully executed cleaning services categorized to help you secure the ideal hygienic standard for your private sanctuary or corporate facility.
+              From family flats and duplexes to offices and stores around Ikorodu, choose the cleaning service that matches your space.
             </p>
           </div>
         </div>
 
-        {/* Asymmetrical Grid matching Reference Screenshot 3 */}
+        {/* Asymmetrical Grid matching Reference */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
           {/* ================= LEFT: 1 LARGE TALL HERO CARD ================= */}
           <div className="lg:col-span-7 group relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[460px] sm:min-h-[580px] shadow-lg border border-slate-200/80 bg-slate-900 flex flex-col justify-between p-6 sm:p-10">
             <img
               src={siteImages.residential.src}
-              alt="Residential Cleaning by Clean Am Correct"
+              alt="Residential Cleaning in Nigerian home by Clean Am Correct"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               loading="lazy"
@@ -46,7 +46,7 @@ export const ServicesSection: React.FC = () => {
             {/* Top Pill Badge */}
             <div className="relative z-10 flex justify-end">
               <span className="px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md border border-white/20">
-                Daily & Recurring
+                Homes & Flats
               </span>
             </div>
 
@@ -56,7 +56,7 @@ export const ServicesSection: React.FC = () => {
                 Residential Cleaning
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-6">
-                Comprehensive apartment, duplex, and family residence care. Dusting, sofa vacuuming, kitchen surface shine, washroom detailing, and floor polishing.
+                Give your home the proper clean it deserves. We handle the dust, tiled floor mopping, parlour vacuuming, and everyday mess so you can enjoy a fresher space.
               </p>
 
               <a
@@ -78,7 +78,7 @@ export const ServicesSection: React.FC = () => {
             <div className="group relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[260px] sm:min-h-[275px] shadow-lg border border-slate-200/80 bg-slate-900 flex flex-col justify-between p-6 sm:p-8 flex-1">
               <img
                 src={siteImages.kitchen.src}
-                alt="Deep Cleaning and Sanitation"
+                alt="Deep Cleaning for Nigerian tiled kitchen"
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
@@ -87,7 +87,7 @@ export const ServicesSection: React.FC = () => {
 
               <div className="relative z-10 flex justify-end">
                 <span className="px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md border border-white/20">
-                  Intensive Care
+                  Thorough Clean
                 </span>
               </div>
 
@@ -96,7 +96,7 @@ export const ServicesSection: React.FC = () => {
                   Deep Cleaning
                 </h3>
                 <p className="text-xs text-slate-200 mb-4 line-clamp-2">
-                  Tile grout scrubbing, grease extraction, limescale descaling, and thorough disinfection.
+                  When your space needs more than a quick clean, we take our time to clean the areas that are often missed.
                 </p>
                 <a
                   href={getServiceWhatsAppUrl('Deep Cleaning')}
@@ -110,11 +110,11 @@ export const ServicesSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom Right Card: Commercial Cleaning */}
+            {/* Bottom Right Card: Office Cleaning */}
             <div className="group relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[260px] sm:min-h-[275px] shadow-lg border border-slate-200/80 bg-slate-900 flex flex-col justify-between p-6 sm:p-8 flex-1">
               <img
                 src={siteImages.commercial.src}
-                alt="Commercial and Office Spaces"
+                alt="Office Cleaning in Lagos Nigeria"
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
@@ -123,19 +123,19 @@ export const ServicesSection: React.FC = () => {
 
               <div className="relative z-10 flex justify-end">
                 <span className="px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md border border-white/20">
-                  Corporate Spaces
+                  Offices & Shops
                 </span>
               </div>
 
               <div className="relative z-10 text-white">
                 <h3 className="font-editorial-heading text-xl sm:text-2xl font-extrabold uppercase tracking-tight text-white mb-1.5">
-                  Commercial & Offices
+                  Office Cleaning
                 </h3>
                 <p className="text-xs text-slate-200 mb-4 line-clamp-2">
-                  Streak-free glass, conference rooms, vacuumed workstations, and hygienic lobbies.
+                  Keep your workplace clean, comfortable and ready for the day without getting in the way of business.
                 </p>
                 <a
-                  href={getServiceWhatsAppUrl('Commercial Cleaning')}
+                  href={getServiceWhatsAppUrl('Office Cleaning')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#38b6ff] hover:text-white transition-colors"
@@ -148,12 +148,12 @@ export const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= FULL-WIDTH PANORAMIC CARD MATCHING REFERENCE SCREENSHOT 4 ================= */}
+        {/* ================= FULL-WIDTH PANORAMIC CARD ================= */}
         <div className="mt-6 sm:mt-8">
           <div className="group relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[280px] sm:min-h-[340px] shadow-lg border border-slate-200/80 bg-slate-900 flex flex-col justify-between p-6 sm:p-10">
             <img
-              src={siteImages.heroLiving.src}
-              alt="Move-In and Move-Out Turnover Cleaning"
+              src={siteImages.floorMop.src}
+              alt="Move-In and Move-Out Cleaning for Nigerian homes"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               loading="lazy"
@@ -162,16 +162,16 @@ export const ServicesSection: React.FC = () => {
 
             <div className="relative z-10 flex justify-end">
               <span className="px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md border border-white/20">
-                Turnover Specialists
+                Moving Day
               </span>
             </div>
 
             <div className="relative z-10 text-white max-w-2xl">
               <h3 className="font-editorial-heading text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-2">
-                Move-In / Move-Out Turnover Cleaning
+                Move-In / Move-Out Cleaning
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed mb-5">
-                Moving into a new flat or handing over a rented property in Ikorodu? We provide thorough top-to-bottom turnover cleaning, washing cabinets, walls, skirting boards, and sanitizing every touchpoint so new occupants enjoy a fresh beginning.
+                Moving into a new flat or handing over a rented space in Ikorodu? We'll help get it properly cleaned and ready. We clean inside cupboards, scrub floors, and make sure everything is fresh for you or the next tenant.
               </p>
 
               <a

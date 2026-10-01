@@ -1,16 +1,15 @@
 // Clean Am Correct - Centralized Image Asset Configuration
-// Sourced and generated to editorial commercial photography standards.
+// Sourced and generated to reflect authentic Nigerian homes, apartments, and offices in Lagos / Ikorodu.
 // Replace any path anytime with your own high-resolution business photos.
 
-import heroLivingImg from '../assets/images/hero_living_space_1790687006920.jpg';
-import luxuryLivingImg from '../assets/images/luxury_living_room_clean_1790688890842.jpg';
-import cleanerVacuumImg from '../assets/images/cleaner_vacuuming_carpet_1790688909880.jpg';
-import luxuryBathroomImg from '../assets/images/luxury_bathroom_clean_1790688926494.jpg';
-import luxuryBedroomImg from '../assets/images/luxury_bedroom_clean_1790688946385.jpg';
+import nigerianLivingImg from '../assets/images/nigerian_living_room_clean_1790886053240.jpg';
+import nigerianCleanerSofaImg from '../assets/images/nigerian_cleaner_vacuum_1790886070579.jpg';
+import nigerianFloorMopImg from '../assets/images/nigerian_tiled_floor_mop_1790886120742.jpg';
+import nigerianKitchenImg from '../assets/images/nigerian_tiled_kitchen_clean_1790886087608.jpg';
+import nigerianOfficeImg from '../assets/images/nigerian_office_clean_1790886104571.jpg';
+import nigerianBedroomImg from '../assets/images/nigerian_bedroom_clean_1790886142399.jpg';
+import nigerianBathroomImg from '../assets/images/nigerian_bathroom_clean_1790886174065.jpg';
 import cleaningEquipmentImg from '../assets/images/cleaning_equipment_pro_1790687017632.jpg';
-import residentialHomeImg from '../assets/images/residential_clean_home_1790687032337.jpg';
-import commercialOfficeImg from '../assets/images/commercial_office_clean_1790687044645.jpg';
-import kitchenDeepCleanImg from '../assets/images/sparkling_kitchen_clean_1790687056589.jpg';
 
 export interface ImageSlide {
   src: string;
@@ -18,6 +17,7 @@ export interface ImageSlide {
   title: string;
   subtitle: string;
   tag: string;
+  badge: string;
 }
 
 export const siteImages = {
@@ -26,133 +26,137 @@ export const siteImages = {
     alt: 'Clean Am Correct official logo - Professional cleaning services in Ikorodu, Lagos',
   },
   heroLiving: {
-    src: luxuryLivingImg,
-    alt: 'Immaculately cleaned luxury living room with natural light and polished floor',
+    src: nigerianLivingImg,
+    alt: 'Clean modern Nigerian living room in Lagos with polished tiled floors and comfortable seating',
   },
-  vacuumCleaner: {
-    src: cleanerVacuumImg,
-    alt: 'Professional cleaner vacuuming luxury area rug in modern room',
+  cleanerSofa: {
+    src: nigerianCleanerSofaImg,
+    alt: 'Professional Nigerian cleaner carefully cleaning sofa and living area',
+  },
+  floorMop: {
+    src: nigerianFloorMopImg,
+    alt: 'Nigerian cleaner mopping clean ceramic tile floor in Lagos home',
   },
   bedroom: {
-    src: luxuryBedroomImg,
-    alt: 'Pristine luxury master bedroom with fresh linens and vacuumed carpet',
+    src: nigerianBedroomImg,
+    alt: 'Tidy, fresh master bedroom in a Lagos apartment with clean sheets and tiled floor',
   },
   bathroom: {
-    src: luxuryBathroomImg,
-    alt: 'Spotless modern marble bathroom after professional deep sanitation',
+    src: nigerianBathroomImg,
+    alt: 'Spotless tiled bathroom in a Lagos residence after deep cleaning',
   },
   kitchen: {
-    src: kitchenDeepCleanImg,
-    alt: 'Sparkling clean quartz kitchen countertops, stainless fixtures and tiles',
+    src: nigerianKitchenImg,
+    alt: 'Sparkling clean tiled Nigerian kitchen in a Lagos apartment with tidy countertops',
   },
   commercial: {
-    src: commercialOfficeImg,
-    alt: 'Pristine corporate office conference and executive workspace',
+    src: nigerianOfficeImg,
+    alt: 'Clean, organized commercial office workspace in Lagos Nigeria',
   },
   equipment: {
     src: cleaningEquipmentImg,
-    alt: 'Commercial grade vacuum, microfiber materials and safe cleaning solutions',
+    alt: 'Commercial grade vacuum, microfiber materials and safe cleaning supplies',
   },
   residential: {
-    src: residentialHomeImg,
-    alt: 'Fresh, sanitized contemporary home and living room in Ikorodu Lagos',
+    src: nigerianLivingImg,
+    alt: 'Fresh, clean Nigerian home living room in Ikorodu Lagos',
   },
 
   // Hero Layered Carousel Slides (Rotates as overlapping 3D cards)
   heroSlides: [
     {
-      src: luxuryLivingImg,
-      alt: 'Beautiful freshly cleaned luxury living room with natural light',
-      title: 'Pristine Living Spaces',
-      subtitle: 'Vacuumed upholstery, dusted cornices, and gleaming hardwood floors',
-      tag: 'RESIDENTIAL',
+      src: nigerianLivingImg,
+      alt: 'Clean, comfortable Nigerian living room in Lagos with gleaming tiled floors',
+      title: 'Clean & Comfortable Living Rooms',
+      subtitle: 'Vacuumed sofas, clean tiled floors, and fresh dust-free spaces for family and guests',
+      tag: 'HOMES & FLATS',
       badge: '01 / 06',
     },
     {
-      src: cleanerVacuumImg,
-      alt: 'Professional cleaner vacuuming luxury area rug',
-      title: 'Precision Rug & Carpet Care',
-      subtitle: 'Deep fiber debris extraction and allergen removal',
-      tag: 'DEEP CARE',
+      src: nigerianCleanerSofaImg,
+      alt: 'Professional Nigerian cleaner cleaning a living room sofa',
+      title: 'Sofa Cleaning & Dust Removal',
+      subtitle: 'Proper vacuuming and dusting to remove trapped dust, sand, and pet hair',
+      tag: 'FURNITURE CARE',
       badge: '02 / 06',
     },
     {
-      src: kitchenDeepCleanImg,
-      alt: 'Spotless modern kitchen after deep cleaning',
-      title: 'Hygienic Kitchens & Appliances',
-      subtitle: 'Degreased countertops, descaled sinks, and sanitised surfaces',
-      tag: 'KITCHENS',
+      src: nigerianFloorMopImg,
+      alt: 'Nigerian cleaner mopping a clean tiled floor with mop and bucket',
+      title: 'Spotless Mopped Tile Floors',
+      subtitle: 'Properly mopped and polished tiles, clean skirting boards, and no slippery residue',
+      tag: 'FLOOR CARE',
       badge: '03 / 06',
     },
     {
-      src: luxuryBathroomImg,
-      alt: 'Spotless luxury bathroom with sparkling tiles',
-      title: 'Bathroom & Washroom Detailing',
-      subtitle: 'Limescale descaling, streak-free glass, and tile grout disinfection',
-      tag: 'SANITATION',
+      src: nigerianKitchenImg,
+      alt: 'Spotless modern Nigerian tiled kitchen with clean countertops and sink',
+      title: 'Clean & Fresh Tiled Kitchens',
+      subtitle: 'Degreased cooker surroundings, wiped wall tiles, and sanitized washing sinks',
+      tag: 'KITCHENS',
       badge: '04 / 06',
     },
     {
-      src: commercialOfficeImg,
-      alt: 'Clean commercial office and meeting room',
-      title: 'Corporate & Commercial Spaces',
-      subtitle: 'Streak-free partitions, vacuumed workstations, and executive lobbies',
-      tag: 'OFFICES',
+      src: cleaningEquipmentImg,
+      alt: 'Professional cleaning equipment, vacuum cleaner, and safe detergents',
+      title: 'Proper Equipment & Supplies',
+      subtitle: 'Commercial vacuums, clean microfiber cloths, and safe disinfectants',
+      tag: 'OUR GEAR',
       badge: '05 / 06',
     },
     {
-      src: cleaningEquipmentImg,
-      alt: 'Professional cleaning equipment and tools',
-      title: 'Commercial Equipment & Care',
-      subtitle: 'HEPA vacuums, hygienic microfiber tools, and safe detergents',
-      tag: 'EQUIPMENT',
+      src: nigerianOfficeImg,
+      alt: 'Clean commercial office workspace in Lagos Nigeria',
+      title: 'Clean Offices & Workplaces',
+      subtitle: 'Dusted computer desks, streak-free glass, clean floors, and tidy meeting rooms',
+      tag: 'OFFICES',
       badge: '06 / 06',
     },
   ],
 
-  // "What We Clean" Horizontal Gallery Items (Inspired by Collection Carousel)
+  // "What We Clean" Horizontal Gallery Items
   whatWeClean: [
     {
-      title: 'Living Spaces',
+      title: 'Living Rooms & Parlours',
       category: 'Residential',
-      itemsCount: '15+ Points',
-      image: luxuryLivingImg,
-      description: 'Sofa vacuuming, dust removal, floor polish, and corner cobweb extraction.',
+      itemsCount: 'Full Space',
+      image: nigerianLivingImg,
+      description: 'Sofa vacuuming, tiled floor mopping, TV console dusting, and corner cobweb removal.',
     },
     {
       title: 'Bedrooms',
-      category: 'Personal Spaces',
-      itemsCount: '10+ Points',
-      image: luxuryBedroomImg,
-      description: 'Linen freshening, under-bed cleaning, wardrobe dusting, and mattress vacuuming.',
+      category: 'Family Homes',
+      itemsCount: 'Every Room',
+      image: nigerianBedroomImg,
+      description: 'Under-bed dust removal, wardrobe wipe-down, floor sweeping, and bed freshening.',
     },
     {
-      title: 'Kitchens',
+      title: 'Tiled Kitchens',
       category: 'Food Prep',
-      itemsCount: '12+ Points',
-      image: kitchenDeepCleanImg,
-      description: 'Stovetop degreasing, exterior appliance wipe, sink sanitising, and tile scrubbing.',
+      itemsCount: 'Deep Degrease',
+      image: nigerianKitchenImg,
+      description: 'Cooker degreasing, wall tile scrubbing, cabinet wipe-down, and double sink sanitizing.',
     },
     {
-      title: 'Bathrooms',
+      title: 'Bathrooms & Washrooms',
       category: 'Sanitation',
-      itemsCount: '14+ Points',
-      image: luxuryBathroomImg,
-      description: 'Toilet bowl disinfection, glass shower descaling, tile cleaning, and faucet polish.',
+      itemsCount: 'Descaled',
+      image: nigerianBathroomImg,
+      description: 'Toilet bowl disinfection, shower tile scrubbing, mirror polish, and tap descaling.',
     },
     {
-      title: 'Offices & Boardrooms',
+      title: 'Lagos Offices & Shops',
       category: 'Commercial',
-      itemsCount: '20+ Points',
-      image: commercialOfficeImg,
-      description: 'Workstation dust elimination, glass streak removal, and carpet vacuuming.',
+      itemsCount: 'Workplaces',
+      image: nigerianOfficeImg,
+      description: 'Desk wipe-down, keyboard and screen dusting, trash emptying, and floor cleaning.',
     },
     {
-      title: 'Move-In Turnovers',
-      category: 'Turnaround',
-      itemsCount: 'Full Property',
-      image: residentialHomeImg,
-      description: 'Top-to-bottom empty home sanitization ready for incoming occupants.',
+      title: 'Move-In & Move-Out',
+      category: 'New Tenants',
+      itemsCount: 'Empty Property',
+      image: nigerianFloorMopImg,
+      description: 'Complete top-to-bottom turnover cleaning before you unpack or hand over the keys.',
     },
   ],
 };

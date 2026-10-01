@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </button>
 
             <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-sm">
-              Transform your environment with our premium residential, commercial, and deep cleaning services. Dedicated craftsmanship and dependable hygiene you can trust in Ikorodu, Lagos.
+              Reliable residential, office, deep cleaning and move-in services in Ikorodu, Lagos. We help you keep your home and workspace clean, fresh and comfortable.
             </p>
           </div>
 

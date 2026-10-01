@@ -25,11 +25,11 @@ export const WhatWeCleanGallery: React.FC = () => {
   return (
     <section className="py-20 md:py-32 bg-white border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header matching Reference Screenshot 4/5 */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-              Room-By-Room Detailing
+              Room By Room
             </span>
             <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold text-[#032b69] tracking-tight uppercase leading-none">
               What We{' '}
@@ -59,7 +59,7 @@ export const WhatWeCleanGallery: React.FC = () => {
           </div>
         </div>
 
-        {/* Horizontal Overlapping Gallery Row matching Screenshot 5 */}
+        {/* Horizontal Overlapping Gallery Row */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
@@ -85,7 +85,7 @@ export const WhatWeCleanGallery: React.FC = () => {
                   loading="lazy"
                 />
 
-                {/* Subtle dark green/navy overlay matching Screenshot 5 */}
+                {/* Subtle dark overlay */}
                 <div
                   className={`absolute inset-0 transition-opacity duration-300 ${
                     isHighlighted
@@ -117,7 +117,7 @@ export const WhatWeCleanGallery: React.FC = () => {
 
                   <a
                     href={`https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
-                      `Hello Clean Am Correct, I would like to book a cleaning for: ${item.title} (${item.category}).`
+                      `Hello Clean Am Correct, I would like to book a cleaning for my ${item.title} in Ikorodu.`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

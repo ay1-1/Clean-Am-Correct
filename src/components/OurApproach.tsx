@@ -19,16 +19,16 @@ export const OurApproach: React.FC = () => {
     {
       step: '03',
       title: 'WE CLEAN',
-      subtitle: 'Systematic Precision',
+      subtitle: 'Thorough & Attentive',
       description:
-        'We execute a methodical room-by-room checklist: high dusting, baseboard cleaning, tile scrubbing, kitchen degreasing, and surface polish.',
+        'We clean room by room: dusting cornices, mopping tiles, scrubbing bathrooms, degreasing kitchen areas, and vacuuming upholstery.',
     },
     {
       step: '04',
       title: 'YOU ENJOY',
-      subtitle: 'Fresh, Pristine Sanctuary',
+      subtitle: 'Relax & Enjoy Your Space',
       description:
-        'Inspect your sparkling, transformed home or office. Savor a cleaner atmosphere and comfortable living space without lifting a finger.',
+        'Walk into your fresh, properly cleaned home or office. Relax in a comfortable and hygienic environment without lifting a finger.',
     },
   ];
 
@@ -37,7 +37,7 @@ export const OurApproach: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0284c7] block mb-3">
-            Workflow & Method
+            How It Works
           </span>
           <h2 className="font-editorial-heading text-4xl sm:text-6xl font-extrabold text-[#032b69] tracking-tight uppercase leading-none">
             Our{' '}
@@ -46,7 +46,7 @@ export const OurApproach: React.FC = () => {
             </span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
-            A structured four-step journey designed for seamless booking, meticulous sanitation, and absolute peace of mind.
+            A simple, straightforward process to get your space properly cleaned and refreshed.
           </p>
         </div>
 

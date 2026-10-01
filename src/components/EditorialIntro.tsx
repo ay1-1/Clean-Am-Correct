@@ -23,11 +23,11 @@ export const EditorialIntro: React.FC = () => {
           {/* RIGHT: Asymmetrical Paragraph + CTA with generous whitespace */}
           <div className="lg:col-span-5 flex flex-col justify-between pt-2 lg:pt-8 space-y-6">
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal text-balance">
-              Clean Am Correct exists to bring calm, cleanliness, and peace of mind to homeowners and commercial enterprises across Ikorodu and Lagos. We replace the stress of domestic chores with disciplined, detailed, and hygienic care.
+              We take cleaning seriously. We don’t just wipe down surfaces and leave—we make sure your space is properly cleaned, dust-free, and left looking fresh.
             </p>
 
             <p className="text-sm text-slate-500 leading-relaxed font-normal">
-              From routine apartment maintenance to intensive pre-move sanitization and corporate offices, our trained team arrives prepared with commercial equipment to leave every room immaculate.
+              Whether you live in a flat, duplex, or manage an office in Ikorodu, we understand how Lagos road dust and busy weekly schedules make cleaning difficult. Our friendly, reliable team handles the hard work so you can come home to peace and comfort.
             </p>
 
             <div className="pt-2 flex items-center gap-4">
@@ -39,7 +39,7 @@ export const EditorialIntro: React.FC = () => {
               >
                 <MessageSquare className="w-4 h-4 text-[#38b6ff]" />
                 <span className="border-b-2 border-[#032b69] group-hover:border-[#38b6ff] pb-0.5">
-                  Book an Appointment on WhatsApp
+                  Book on WhatsApp ({siteConfig.phoneDisplay})
                 </span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
