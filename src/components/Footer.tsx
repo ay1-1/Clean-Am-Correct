@@ -1,13 +1,14 @@
 import React from 'react';
-import { Phone, MessageSquare, MapPin } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, CreditCard } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { servicesData } from '../data/services';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
+  onOpenPayment?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPayment }) => {
   return (
     <footer className="bg-[#06101e] text-slate-400 pt-20 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,6 +82,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Contact
                 </button>
               </li>
+              {onOpenPayment && (
+                <li>
+                  <button
+                    id="footer-pay-now"
+                    onClick={onOpenPayment}
+                    className="flex items-center gap-1.5 text-[#38b6ff] hover:text-sky-300 transition-colors font-semibold"
+                  >
+                    <CreditCard className="w-3.5 h-3.5" />
+                    Pay Now
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

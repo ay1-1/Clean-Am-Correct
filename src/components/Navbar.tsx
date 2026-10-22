@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, MessageSquare, Menu, X, Phone } from 'lucide-react';
+import { Sparkles, MessageSquare, Menu, X, Phone, CreditCard } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 
 interface NavbarProps {
   activeSection: string;
   onNavigate: (sectionId: string) => void;
   darkHero?: boolean;
+  onOpenPayment?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkHero = true }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkHero = true, onOpenPayment }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -107,8 +108,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkH
             })}
           </nav>
 
-          {/* RIGHT: Book an Appointment pill button */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* RIGHT: CTA buttons */}
+          <div className="hidden sm:flex items-center gap-3">
+            {/* Pay Now button */}
+            {onOpenPayment && (
+              <button
+                id="navbar-pay-now"
+                onClick={onOpenPayment}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all border-2 ${
+                  isNavDark
+                    ? 'border-[#38b6ff] text-[#38b6ff] hover:bg-[#38b6ff] hover:text-white'
+                    : 'border-[#38b6ff] text-[#0284c7] hover:bg-[#38b6ff] hover:text-white'
+                }`}
+              >
+                <CreditCard className="w-3.5 h-3.5" />
+                <span>Pay Now</span>
+              </button>
+            )}
             <a
               href={siteConfig.whatsappLink}
               target="_blank"
@@ -171,6 +187,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkH
             ))}
 
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+              {onOpenPayment && (
+                <button
+                  id="mobile-pay-now"
+                  onClick={() => { onOpenPayment(); setMobileMenuOpen(false); }}
+                  className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#0284c7] to-[#38b6ff] shadow-sm"
+                >
+                  <CreditCard className="w-4 h-4" />
+                  <span>Pay Now</span>
+                </button>
+              )}
               <a
                 href={siteConfig.whatsappLink}
                 target="_blank"
