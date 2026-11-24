@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, MessageSquare, Menu, X, Phone, CreditCard } from 'lucide-react';
+import { Sparkles, MessageSquare, Menu, X, Phone, CreditCard, Bot } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 
 interface NavbarProps {
@@ -7,9 +7,16 @@ interface NavbarProps {
   onNavigate: (sectionId: string) => void;
   darkHero?: boolean;
   onOpenPayment?: () => void;
+  onOpenChat?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkHero = true, onOpenPayment }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  activeSection,
+  onNavigate,
+  darkHero = true,
+  onOpenPayment,
+  onOpenChat,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -110,6 +117,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkH
 
           {/* RIGHT: CTA buttons */}
           <div className="hidden sm:flex items-center gap-3">
+            {/* Ask AI Chatbot */}
+            {onOpenChat && (
+              <button
+                id="navbar-ask-ai"
+                onClick={onOpenChat}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
+                  isNavDark
+                    ? 'bg-[#38b6ff]/20 text-[#38b6ff] hover:bg-[#38b6ff]/35 border border-[#38b6ff]/40 shadow-sm'
+                    : 'bg-sky-50 text-[#0284c7] hover:bg-sky-100 border border-sky-200 shadow-sm'
+                }`}
+                title="Chat with AI for instant prices & answers"
+              >
+                <Bot className="w-3.5 h-3.5 text-[#38b6ff]" />
+                <span>Ask AI</span>
+              </button>
+            )}
+
             {/* Pay Now button */}
             {onOpenPayment && (
               <button
@@ -142,6 +166,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkH
 
           {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
+            {onOpenChat && (
+              <button
+                onClick={onOpenChat}
+                className="p-2 rounded-full bg-sky-500/20 text-[#38b6ff] border border-[#38b6ff]/30"
+                aria-label="Ask AI Assistant"
+                title="Ask AI Assistant"
+              >
+                <Bot className="w-4 h-4" />
+              </button>
+            )}
+
             <a
               href={siteConfig.whatsappLink}
               target="_blank"
@@ -187,6 +222,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate, darkH
             ))}
 
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
+              {onOpenChat && (
+                <button
+                  id="mobile-ask-ai"
+                  onClick={() => { onOpenChat(); setMobileMenuOpen(false); }}
+                  className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-full text-xs font-bold uppercase tracking-wider text-[#032b69] bg-sky-50 border border-sky-200 shadow-sm"
+                >
+                  <Bot className="w-4 h-4 text-[#0284c7]" />
+                  <span>Ask AI Assistant (Prices & Info)</span>
+                </button>
+              )}
               {onOpenPayment && (
                 <button
                   id="mobile-pay-now"

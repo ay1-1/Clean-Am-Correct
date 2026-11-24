@@ -1,14 +1,15 @@
 import React from 'react';
-import { Phone, MessageSquare, MapPin, CreditCard } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, CreditCard, Bot } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { servicesData } from '../data/services';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
   onOpenPayment?: () => void;
+  onOpenChat?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPayment }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPayment, onOpenChat }) => {
   return (
     <footer className="bg-[#06101e] text-slate-400 pt-20 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,6 +83,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenPayment }) => 
                   Contact
                 </button>
               </li>
+              {onOpenChat && (
+                <li>
+                  <button
+                    id="footer-ask-ai"
+                    onClick={onOpenChat}
+                    className="flex items-center gap-1.5 text-sky-400 hover:text-sky-300 transition-colors font-medium"
+                  >
+                    <Bot className="w-3.5 h-3.5" />
+                    Ask AI Assistant
+                  </button>
+                </li>
+              )}
               {onOpenPayment && (
                 <li>
                   <button

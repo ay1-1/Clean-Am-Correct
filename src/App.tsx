@@ -20,11 +20,13 @@ import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { PaymentPortal } from './components/PaymentPortal';
+import { ChatBot } from './components/ChatBot';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [paymentOpen, setPaymentOpen] = useState(false);
   const [paymentServiceId, setPaymentServiceId] = useState<string | undefined>(undefined);
+  const [chatOpen, setChatOpen] = useState(false);
 
   const handleOpenPayment = (serviceId?: string) => {
     setPaymentServiceId(serviceId);
@@ -55,7 +57,13 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-[#38b6ff] selection:text-white">
       {/* Editorial Navigation Bar */}
-      <Navbar activeSection={activeSection} onNavigate={handleNavigate} darkHero={true} onOpenPayment={() => handleOpenPayment()} />
+      <Navbar
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        darkHero={true}
+        onOpenPayment={() => handleOpenPayment()}
+        onOpenChat={() => setChatOpen(true)}
+      />
 
       <main className="flex-grow">
         {/* ================= 1. HERO SECTION WITH 3D LAYERED CAROUSEL ================= */}
@@ -134,13 +142,24 @@ export default function App() {
       <WhatsAppButton />
 
       {/* Dark Luxury Footer (Screenshot 8) */}
-      <Footer onNavigate={handleNavigate} onOpenPayment={() => handleOpenPayment()} />
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenPayment={() => handleOpenPayment()}
+        onOpenChat={() => setChatOpen(true)}
+      />
 
       {/* Payment Portal Modal */}
       <PaymentPortal
         isOpen={paymentOpen}
         onClose={() => setPaymentOpen(false)}
         preSelectedServiceId={paymentServiceId}
+      />
+
+      {/* Real-time Intelligent AI Chatbot */}
+      <ChatBot
+        isOpen={chatOpen}
+        onOpenChange={setChatOpen}
+        onOpenPayment={(serviceId) => handleOpenPayment(serviceId)}
       />
     </div>
   );
