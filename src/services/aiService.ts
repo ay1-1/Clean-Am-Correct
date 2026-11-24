@@ -26,7 +26,7 @@ KEY BUSINESS FACTS & OFFICIAL PRICE LIST:
 3. 1-Bedroom Apartment – ₦45,000
 4. 2-Bedroom Apartment – ₦60,000
 5. 3-Bedroom Apartment – ₦80,000
-6. 4-Bedroom Apartment – Price to be confirmed (Custom quote upon inspection)
+6. 4-Bedroom Apartment – ₦120,000
 7. 5-Bedroom Apartment – ₦165,000
 8. Room + Bathroom/Toilet – ₦45,000
 
@@ -90,12 +90,12 @@ export function extractActionsFromText(text: string): ChatAction[] {
         'Hello Clean Am Correct, I want to book cleaning for a Room (Self-contained) (₦35,000).'
       )}`,
     });
-  } else if (lower.includes('4-bedroom') || lower.includes('to be confirmed')) {
+  } else if (lower.includes('4-bedroom') || lower.includes('₦120,000')) {
     actions.push({
-      label: '💬 Confirm 4-Bedroom Quote on WhatsApp',
+      label: '💬 Book 4-Bedroom (₦120,000) on WhatsApp',
       type: 'whatsapp',
       url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
-        'Hello Clean Am Correct, I have a 4-Bedroom property and want to confirm quote and inspection.'
+        'Hello Clean Am Correct, I want to book cleaning for a 4-Bedroom Apartment (₦120,000).'
       )}`,
     });
   }
@@ -169,7 +169,7 @@ function generateContextualAIResponse(
   }
 
   if (query.includes('4 bedroom') || query.includes('4-bed') || query.includes('four bedroom') || query.includes('four bed')) {
-    return `For a **4-Bedroom Apartment**:\n\n• 🚪 **Price**: **Price to be confirmed**\n• Because 4-bedroom apartments and duplexes vary in dimensions, compound layout, and number of washrooms, we confirm the exact quote upon inspection or details of your layout.\n\n${LOCATION_PRICE_NOTICE}\n\nChat with our manager on WhatsApp at **07046975466** to get your confirmed quote immediately!`;
+    return `For a **4-Bedroom Apartment**, our official price is:\n\n• 🚪 **Price**: **₦120,000**\n• Comprehensive detailing covering spacious living rooms, 4 bedrooms, kitchen detailing, and all washrooms.\n\n${LOCATION_PRICE_NOTICE}`;
   }
 
   if (query.includes('5 bedroom') || query.includes('5-bed') || query.includes('five bedroom') || query.includes('five bed')) {

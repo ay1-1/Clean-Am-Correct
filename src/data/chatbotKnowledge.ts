@@ -64,9 +64,8 @@ export const OFFICIAL_PRICE_LIST: OfficialPriceItem[] = [
     id: '4-bedroom-apartment',
     number: 6,
     name: '4-Bedroom Apartment',
-    price: 'Price to be confirmed',
-    amount: null,
-    note: 'Custom inspection / quote upon inquiry',
+    price: '₦120,000',
+    amount: 120000,
   },
   {
     id: '5-bedroom-apartment',
@@ -87,14 +86,14 @@ export const OFFICIAL_PRICE_LIST: OfficialPriceItem[] = [
 export const LOCATION_PRICE_NOTICE =
   "⚠️ **IMPORTANT NOTICE:**\nPrices may vary depending on the customer's location. Additional transportation or logistics charges may apply for distant locations.";
 
-export const FORMATTED_OFFICIAL_PRICE_LIST = `📋 **CLEAN AM CORRECT – OFFICIAL PRICE LIST**\n\n1. 🏠 **Room (Self-contained)** – **₦35,000**\n2. 🏡 **Full House** – **₦50,000**\n3. 🏢 **1-Bedroom Apartment** – **₦45,000**\n4. 🛋️ **2-Bedroom Apartment** – **₦60,000**\n5. 🛏️ **3-Bedroom Apartment** – **₦80,000**\n6. 🚪 **4-Bedroom Apartment** – **Price to be confirmed**\n7. 🏰 **5-Bedroom Apartment** – **₦165,000**\n8. 🚿 **Room + Bathroom/Toilet** – **₦45,000**\n\n${LOCATION_PRICE_NOTICE}`;
+export const FORMATTED_OFFICIAL_PRICE_LIST = `📋 **CLEAN AM CORRECT – OFFICIAL PRICE LIST**\n\n1. 🏠 **Room (Self-contained)** – **₦35,000**\n2. 🏡 **Full House** – **₦50,000**\n3. 🏢 **1-Bedroom Apartment** – **₦45,000**\n4. 🛋️ **2-Bedroom Apartment** – **₦60,000**\n5. 🛏️ **3-Bedroom Apartment** – **₦80,000**\n6. 🚪 **4-Bedroom Apartment** – **₦120,000**\n7. 🏰 **5-Bedroom Apartment** – **₦165,000**\n8. 🚿 **Room + Bathroom/Toilet** – **₦45,000**\n\n${LOCATION_PRICE_NOTICE}`;
 
 export const COMMON_SUGGESTIONS = [
   '💰 Official Price List',
   '🏠 2-Bedroom Apartment (₦60k)',
+  '🚪 4-Bedroom Apartment (₦120k)',
   '🏡 Full House (₦50k)',
   '🛏️ 3-Bedroom Apartment (₦80k)',
-  '🚪 4-Bedroom Apartment Quote',
   '📍 Areas in Ikorodu Covered',
   '💬 Book on WhatsApp',
 ];
@@ -269,21 +268,22 @@ export function getInstantChatResponse(rawInput: string): ChatResponse {
     };
   }
 
-  // 4-Bedroom Apartment (Price to be confirmed)
+  // 4-Bedroom Apartment
   if (input.includes('4 bedroom') || input.includes('4-bed') || input.includes('four bedroom') || input.includes('four bed')) {
     return {
-      text: `🚪 **4-Bedroom Apartment Cleaning**:\n\n• **Price**: **Price to be confirmed**\n• Because 4-bedroom apartments and duplexes vary significantly in size, number of bathrooms, and compound layout, we provide a **confirmed custom quote** based on your specific property.\n\n${LOCATION_PRICE_NOTICE}\n\nChat with our dispatch manager on WhatsApp for an immediate quote and site scheduling!`,
+      text: `🚪 **4-Bedroom Apartment Cleaning**:\n\n• **Price**: **₦120,000**\n• Detailed comprehensive cleaning covering parlor/living spaces, 4 bedrooms, kitchen detailing, and all washrooms.\n\n${LOCATION_PRICE_NOTICE}`,
       actions: [
         {
-          label: '💬 Confirm 4-Bedroom Price on WhatsApp',
+          label: '💬 Book 4-Bedroom (₦120,000) on WhatsApp',
           type: 'whatsapp',
           url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
-            'Hello Clean Am Correct, I have a 4-Bedroom Apartment and would like to confirm pricing and availability.'
+            'Hello Clean Am Correct, I want to book cleaning for a 4-Bedroom Apartment (₦120,000).'
           )}`,
         },
         {
-          label: `📞 Call Dispatch (${siteConfig.phoneDisplay})`,
-          type: 'call',
+          label: '💰 View Full Price List',
+          type: 'query',
+          query: 'Show me the official price list',
         },
       ],
       suggestions: ['🛏️ 3-Bedroom ₦80k', '🏰 5-Bedroom ₦165k', '💰 Official Price List'],

@@ -90,9 +90,9 @@ export const ALL_PAYMENT_OPTIONS: ServiceOptionItem[] = [
   {
     id: '4-bedroom-apartment',
     title: '6. 4-Bedroom Apartment',
-    shortDesc: 'Booking deposit. Total confirmed upon inspection based on layout.',
-    min: 20000,
-    label: '₦20,000 deposit (Price to be confirmed)',
+    shortDesc: 'Full detailing of living spaces, 4 bedrooms, kitchen, and washrooms.',
+    min: 120000,
+    label: '₦120,000',
   },
   {
     id: '5-bedroom-apartment',

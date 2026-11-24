@@ -25,7 +25,7 @@ export const FAQSection: React.FC = () => {
     {
       question: 'What is your official price list for apartments and houses?',
       answer:
-        'Our official pricing schedule is fully transparent: 1. Room (Self-contained) – ₦35,000 | 2. Full House – ₦50,000 | 3. 1-Bedroom Apartment – ₦45,000 | 4. 2-Bedroom Apartment – ₦60,000 | 5. 3-Bedroom Apartment – ₦80,000 | 6. 4-Bedroom Apartment – Price to be confirmed upon inspection | 7. 5-Bedroom Apartment – ₦165,000 | 8. Room + Bathroom/Toilet – ₦45,000. Note: Prices may vary depending on the customer’s location. Additional transportation or logistics charges may apply for distant locations.',
+        'Our official pricing schedule is fully transparent: 1. Room (Self-contained) – ₦35,000 | 2. Full House – ₦50,000 | 3. 1-Bedroom Apartment – ₦45,000 | 4. 2-Bedroom Apartment – ₦60,000 | 5. 3-Bedroom Apartment – ₦80,000 | 6. 4-Bedroom Apartment – ₦120,000 | 7. 5-Bedroom Apartment – ₦165,000 | 8. Room + Bathroom/Toilet – ₦45,000. Note: Prices may vary depending on the customer’s location. Additional transportation or logistics charges may apply for distant locations.',
     },
     {
       question: 'Which locations in Ikorodu and Lagos do you serve?',
