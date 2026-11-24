@@ -38,15 +38,116 @@ interface PaystackOptions {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Service pricing (NGN)                                               */
+/*  Service pricing (NGN) & Official Price List                         */
 /* ------------------------------------------------------------------ */
-const servicePricing: Record<string, { min: number; label: string }> = {
-  'residential-cleaning': { min: 8000, label: '₦8,000 deposit' },
-  'deep-cleaning': { min: 15000, label: '₦15,000 deposit' },
-  'commercial-cleaning': { min: 20000, label: '₦20,000 deposit' },
-  'move-in-move-out': { min: 18000, label: '₦18,000 deposit' },
-  'post-event-cleaning': { min: 12000, label: '₦12,000 deposit' },
-};
+export interface ServiceOptionItem {
+  id: string;
+  title: string;
+  shortDesc: string;
+  min: number;
+  label: string;
+  popular?: boolean;
+}
+
+export const ALL_PAYMENT_OPTIONS: ServiceOptionItem[] = [
+  {
+    id: 'room-self-contained',
+    title: '1. Room (Self-contained)',
+    shortDesc: 'Single self-contained room thorough cleaning and floor mopping.',
+    min: 35000,
+    label: '₦35,000',
+  },
+  {
+    id: 'full-house',
+    title: '2. Full House',
+    shortDesc: 'Comprehensive general clean for family home compound.',
+    min: 50000,
+    label: '₦50,000',
+    popular: true,
+  },
+  {
+    id: '1-bedroom-apartment',
+    title: '3. 1-Bedroom Apartment',
+    shortDesc: 'Parlor, 1 bedroom, kitchen counter/sink, and bathroom/toilet.',
+    min: 45000,
+    label: '₦45,000',
+  },
+  {
+    id: '2-bedroom-apartment',
+    title: '4. 2-Bedroom Apartment',
+    shortDesc: 'Living room, 2 bedrooms, kitchen cabinets and bathrooms.',
+    min: 60000,
+    label: '₦60,000',
+    popular: true,
+  },
+  {
+    id: '3-bedroom-apartment',
+    title: '5. 3-Bedroom Apartment',
+    shortDesc: 'Spacious parlor, 3 bedrooms, kitchen scrub, and all washrooms.',
+    min: 80000,
+    label: '₦80,000',
+  },
+  {
+    id: '4-bedroom-apartment',
+    title: '6. 4-Bedroom Apartment',
+    shortDesc: 'Booking deposit. Total confirmed upon inspection based on layout.',
+    min: 20000,
+    label: '₦20,000 deposit (Price to be confirmed)',
+  },
+  {
+    id: '5-bedroom-apartment',
+    title: '7. 5-Bedroom Apartment',
+    shortDesc: 'Full multi-cleaner intensive detailing for 5-bedroom residence or duplex.',
+    min: 165000,
+    label: '₦165,000',
+  },
+  {
+    id: 'room-bathroom-toilet',
+    title: '8. Room + Bathroom/Toilet',
+    shortDesc: 'Room cleaning plus deep scrub and sanitation of attached bathroom and toilet.',
+    min: 45000,
+    label: '₦45,000',
+  },
+  {
+    id: 'residential-cleaning',
+    title: 'Residential Cleaning (General)',
+    shortDesc: 'Routine living space maintenance: parlour, bedrooms, and tiled floors.',
+    min: 35000,
+    label: 'From ₦35,000',
+  },
+  {
+    id: 'deep-cleaning',
+    title: 'Deep Cleaning (Intensive)',
+    shortDesc: 'Tile grout scrubbing, degreasing, and descaling.',
+    min: 50000,
+    label: 'From ₦50,000',
+  },
+  {
+    id: 'commercial-cleaning',
+    title: 'Office & Commercial Cleaning',
+    shortDesc: 'Workstations, conference rooms, reception, and floor care.',
+    min: 40000,
+    label: 'From ₦40,000',
+  },
+  {
+    id: 'move-in-move-out',
+    title: 'Move-In / Move-Out Cleaning',
+    shortDesc: 'Complete empty apartment turnover detailing for new tenants.',
+    min: 45000,
+    label: 'From ₦45,000',
+  },
+  {
+    id: 'post-event-cleaning',
+    title: 'Post-Event Cleaning',
+    shortDesc: 'Trash collection, sticky spill floor scrub, and rapid event recovery.',
+    min: 35000,
+    label: 'From ₦35,000',
+  },
+];
+
+const servicePricing: Record<string, { min: number; label: string }> = Object.fromEntries(
+  ALL_PAYMENT_OPTIONS.map((item) => [item.id, { min: item.min, label: item.label }])
+);
 
 /* ------------------------------------------------------------------ */
 /*  Component props                                                      */
@@ -136,8 +237,18 @@ export const PaymentPortal: React.FC<PaymentPortalProps> = ({
   }, [onClose, preSelectedServiceId]);
 
   /* ---------- Helpers ---------- */
-  const selectedService = servicesData.find((s) => s.id === selectedServiceId);
-  const pricing = selectedServiceId ? servicePricing[selectedServiceId] : null;
+  const selectedItem = ALL_PAYMENT_OPTIONS.find((s) => s.id === selectedServiceId);
+  const selectedService = servicesData.find((s) => s.id === selectedServiceId) || (selectedItem ? {
+    id: selectedItem.id,
+    title: selectedItem.title,
+    shortDesc: selectedItem.shortDesc,
+    detailedDesc: selectedItem.shortDesc,
+    benefits: [],
+    features: [],
+    image: '',
+    imageAlt: '',
+  } : undefined);
+  const pricing = selectedItem ? { min: selectedItem.min, label: selectedItem.label } : (selectedServiceId ? servicePricing[selectedServiceId] : null);
 
   const generateRef = () =>
     `CAC-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
@@ -315,22 +426,29 @@ export const PaymentPortal: React.FC<PaymentPortalProps> = ({
           {step === 1 && (
             <div>
               <h3 className="text-base font-bold text-[#032b69] mb-1">
-                Choose Your Service
+                Official Price List & Services
               </h3>
-              <p className="text-xs text-slate-500 mb-4">
-                Select the cleaning service you'd like to book.
+              <p className="text-xs text-slate-500 mb-3">
+                Select your property type or cleaning service to book online.
               </p>
 
-              <div className="space-y-2.5">
-                {servicesData.map((service) => {
-                  const price = servicePricing[service.id];
-                  const isSelected = selectedServiceId === service.id;
+              {/* Location Logistics Notice */}
+              <div className="p-3 bg-amber-50 border border-amber-200/90 rounded-xl mb-4 text-xs text-amber-900 leading-relaxed flex items-start gap-2 shadow-xs">
+                <span className="text-sm shrink-0">⚠️</span>
+                <div>
+                  <strong>IMPORTANT NOTICE:</strong> Prices may vary depending on the customer's location. Additional transportation or logistics charges may apply for distant locations.
+                </div>
+              </div>
+
+              <div className="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+                {ALL_PAYMENT_OPTIONS.map((option) => {
+                  const isSelected = selectedServiceId === option.id;
                   return (
                     <button
-                      key={service.id}
-                      id={`service-option-${service.id}`}
-                      onClick={() => setSelectedServiceId(service.id)}
-                      className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 group ${
+                      key={option.id}
+                      id={`service-option-${option.id}`}
+                      onClick={() => setSelectedServiceId(option.id)}
+                      className={`w-full text-left p-3.5 rounded-xl border-2 transition-all duration-200 group ${
                         isSelected
                           ? 'border-[#38b6ff] bg-sky-50 shadow-md'
                           : 'border-slate-100 hover:border-sky-200 hover:bg-sky-50/50'
@@ -344,25 +462,25 @@ export const PaymentPortal: React.FC<PaymentPortalProps> = ({
                                 isSelected ? 'text-[#032b69]' : 'text-slate-800'
                               }`}
                             >
-                              {service.title}
+                              {option.title}
                             </span>
-                            {service.popular && (
+                            {option.popular && (
                               <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-[#38b6ff] px-2 py-0.5 rounded-full">
                                 Popular
                               </span>
                             )}
                           </div>
                           <p className="text-xs text-slate-500 mt-0.5 leading-relaxed line-clamp-2">
-                            {service.shortDesc}
+                            {option.shortDesc}
                           </p>
                         </div>
                         <div className="shrink-0 text-right">
                           <span
                             className={`text-xs font-bold ${
-                              isSelected ? 'text-[#0284c7]' : 'text-slate-500'
+                              isSelected ? 'text-[#0284c7]' : 'text-slate-600'
                             }`}
                           >
-                            {price?.label}
+                            {option.label}
                           </span>
                           <div
                             className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mt-1 ml-auto transition-all ${
@@ -385,8 +503,7 @@ export const PaymentPortal: React.FC<PaymentPortalProps> = ({
               {/* Notice */}
               <p className="text-[11px] text-slate-400 mt-4 flex items-start gap-1.5">
                 <Shield className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#38b6ff]" />
-                Deposit amounts shown are the minimum required to confirm your booking.
-                Final pricing will be confirmed via WhatsApp.
+                Full transparent pricing. Date and team dispatch are locked upon confirmation.
               </p>
             </div>
           )}

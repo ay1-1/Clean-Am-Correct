@@ -23,9 +23,9 @@ export const FAQSection: React.FC = () => {
         'No, our team arrives fully equipped with commercial-grade vacuum cleaners, hygienic mops, microfiber cloths, degreasers, bathroom sanitizers, and glass cleaners. If you have specialized surfaces or preferred natural solutions, you are welcome to inform us.',
     },
     {
-      question: 'How do you calculate your service quotes?',
+      question: 'What is your official price list for apartments and houses?',
       answer:
-        'We do not use generic fake flat rates because every space has unique needs. Pricing is transparent and based on your property size (e.g. 2-bedroom flat, duplex, or office square footage), current condition, and whether you require routine maintenance or an intensive deep clean.',
+        'Our official pricing schedule is fully transparent: 1. Room (Self-contained) – ₦35,000 | 2. Full House – ₦50,000 | 3. 1-Bedroom Apartment – ₦45,000 | 4. 2-Bedroom Apartment – ₦60,000 | 5. 3-Bedroom Apartment – ₦80,000 | 6. 4-Bedroom Apartment – Price to be confirmed upon inspection | 7. 5-Bedroom Apartment – ₦165,000 | 8. Room + Bathroom/Toilet – ₦45,000. Note: Prices may vary depending on the customer’s location. Additional transportation or logistics charges may apply for distant locations.',
     },
     {
       question: 'Which locations in Ikorodu and Lagos do you serve?',

@@ -1,5 +1,5 @@
 import { siteConfig } from '../data/siteConfig';
-import { ChatAction, PRICING_CATALOGUE } from '../data/chatbotKnowledge';
+import { ChatAction, FORMATTED_OFFICIAL_PRICE_LIST, LOCATION_PRICE_NOTICE } from '../data/chatbotKnowledge';
 
 export interface ChatMessage {
   id: string;
@@ -13,26 +13,34 @@ export interface ChatMessage {
 const SYSTEM_INSTRUCTION = `You are Am-Bot, the official conversational AI assistant for "Clean Am Correct" (cleanamcorrect.com), the premier professional cleaning service based in Ikorodu, Lagos, Nigeria.
 You speak with the warmth, intellectual depth, reasoning ability, and friendly helpfulness of Claude and ChatGPT. You are knowledgeable, polite, detail-oriented, and focused on helping customers keep their spaces spotless.
 
-KEY BUSINESS FACTS:
+KEY BUSINESS FACTS & OFFICIAL PRICE LIST:
 - Business: Clean Am Correct
 - Tagline: "Your Space. Clean & Correct."
 - Location: Ikorodu, Lagos State, Nigeria. We actively serve all areas in Ikorodu: Ebute, Agric, Ogolonto, Igbogbo, Bayeku, Owutu, Haruna, Majidun, Ikorodu Central, as well as nearby Lagos Mainland locations upon request.
 - Phone & WhatsApp: 07046975466 (International: +234 704 697 5466)
 - Operating Hours: Monday to Saturday: 7:30 AM – 6:00 PM. (Sunday by special corporate/event booking).
-- Core Services & Exact Pricing:
-  1. Residential Cleaning: Booking Deposit = ₦8,000. Typical total: 1-bed/Self-contain (₦12,000 – ₦18,000), 2-bed flat (₦18,000 – ₦25,000), 3-bed flat (₦25,000 – ₦35,000), Duplex (₦35,000 – ₦55,000).
-  2. Deep Cleaning: Booking Deposit = ₦15,000. Intensive top-to-bottom scrub. Typical total: 1-bed (₦20,000 – ₦28,000), 2-bed flat (₦28,000 – ₦38,000), 3-bed flat (₦38,000 – ₦50,000), Duplex (₦50,000 – ₦75,000+).
-  3. Office / Commercial Cleaning: Booking Deposit = ₦20,000. Small offices (₦25k–₦40k), Corporate suites (₦40k–₦65k), commercial floors custom.
-  4. Move-In / Move-Out Cleaning: Booking Deposit = ₦18,000. Empty flat turnaround detailing (₦25,000 – ₦55,000).
-  5. Post-Event Cleaning: Booking Deposit = ₦12,000. Fast party & hall recovery (₦20,000 – ₦50,000).
-- Payment & Booking: Customers pay the initial deposit online via our secure Paystack portal (Card, Bank Transfer, USSD) or via WhatsApp dispatch to lock in their date. The remaining balance is paid upon 100% satisfaction after inspecting the cleaned space.
+
+**CLEAN AM CORRECT – OFFICIAL PRICE LIST**:
+1. Room (Self-contained) – ₦35,000
+2. Full House – ₦50,000
+3. 1-Bedroom Apartment – ₦45,000
+4. 2-Bedroom Apartment – ₦60,000
+5. 3-Bedroom Apartment – ₦80,000
+6. 4-Bedroom Apartment – Price to be confirmed (Custom quote upon inspection)
+7. 5-Bedroom Apartment – ₦165,000
+8. Room + Bathroom/Toilet – ₦45,000
+
+**IMPORTANT NOTICE**:
+Prices may vary depending on the customer's location. Additional transportation or logistics charges may apply for distant locations.
+
+- Payment & Booking: Customers can book directly via WhatsApp dispatch (07046975466) or pay online via Paystack.
 - Equipment: We bring our own commercial-grade vacuums, hygienic microfiber mops, heavy-duty tile degreasers, descalers, and hospital-grade sanitizers. The customer does not need to provide anything!
-- Cleaners: 100% vetted, background-verified, and trained in domestic discretion and respect for privacy.
+- Cleaners: 100% vetted, background-verified, and trained in domestic discretion and respect for personal privacy.
 
 INSTRUCTIONS:
 1. Speak naturally, conversationally, and warmly like ChatGPT and Claude.
-2. When asked for prices or quotes, always provide clear, accurate Naira (₦) estimates with the deposit requirement.
-3. If asked cleaning advice (e.g. how to remove tough stains, mold, grease, dust mites), provide genuine, expert cleaning tips, and politely mention how Clean Am Correct can professionally deep-clean their space.
+2. When asked for prices or quotes, always quote the exact official price list and include the important notice regarding location & logistics charges.
+3. If asked cleaning advice (e.g. how to remove tough stains, mold, grease, odor), provide genuine, expert cleaning tips, and politely mention how Clean Am Correct can professionally clean their space.
 4. Use neat Markdown formatting: bold highlights, bullet points, clean spacing.`;
 
 /**
@@ -42,65 +50,82 @@ export function extractActionsFromText(text: string): ChatAction[] {
   const lower = text.toLowerCase();
   const actions: ChatAction[] = [];
 
-  if (lower.includes('deep clean') || lower.includes('₦15,000')) {
+  if (lower.includes('2-bedroom') || lower.includes('₦60,000')) {
     actions.push({
-      label: '💳 Pay ₦15,000 Deep Clean Deposit',
-      type: 'payment',
-      serviceId: 'deep-cleaning',
-    });
-  } else if (lower.includes('move-in') || lower.includes('move-out') || lower.includes('₦18,000')) {
-    actions.push({
-      label: '💳 Pay ₦18,000 Move-In Deposit',
-      type: 'payment',
-      serviceId: 'move-in-move-out',
-    });
-  } else if (lower.includes('office') || lower.includes('commercial') || lower.includes('₦20,000')) {
-    actions.push({
-      label: '💳 Pay ₦20,000 Office Clean Deposit',
-      type: 'payment',
-      serviceId: 'commercial-cleaning',
-    });
-  } else if (lower.includes('event') || lower.includes('party') || lower.includes('₦12,000')) {
-    actions.push({
-      label: '💳 Pay ₦12,000 Event Clean Deposit',
-      type: 'payment',
-      serviceId: 'post-event-cleaning',
-    });
-  } else if (lower.includes('residential') || lower.includes('₦8,000') || lower.includes('deposit')) {
-    actions.push({
-      label: '💳 Pay ₦8,000 Residential Deposit',
-      type: 'payment',
-      serviceId: 'residential-cleaning',
-    });
-  }
-
-  // Always offer WhatsApp booking option if discussing quotes or services
-  if (lower.includes('price') || lower.includes('quote') || lower.includes('book') || lower.includes('cost') || lower.includes('appointment')) {
-    actions.push({
-      label: '💬 Chat on WhatsApp to Confirm Slot',
+      label: '💬 Book 2-Bedroom (₦60,000) on WhatsApp',
       type: 'whatsapp',
       url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
-        'Hello Clean Am Correct! I was chatting with your AI assistant and would like to confirm a booking.'
+        'Hello Clean Am Correct, I want to book cleaning for a 2-Bedroom Apartment (₦60,000).'
+      )}`,
+    });
+  } else if (lower.includes('3-bedroom') || lower.includes('₦80,000')) {
+    actions.push({
+      label: '💬 Book 3-Bedroom (₦80,000) on WhatsApp',
+      type: 'whatsapp',
+      url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
+        'Hello Clean Am Correct, I want to book cleaning for a 3-Bedroom Apartment (₦80,000).'
+      )}`,
+    });
+  } else if (lower.includes('full house') || lower.includes('₦50,000')) {
+    actions.push({
+      label: '💬 Book Full House (₦50,000) on WhatsApp',
+      type: 'whatsapp',
+      url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
+        'Hello Clean Am Correct, I want to book Full House cleaning (₦50,000).'
+      )}`,
+    });
+  } else if (lower.includes('1-bedroom') || lower.includes('room + bathroom') || lower.includes('₦45,000')) {
+    actions.push({
+      label: '💬 Book on WhatsApp (₦45,000)',
+      type: 'whatsapp',
+      url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
+        'Hello Clean Am Correct, I would like to book an appointment (₦45,000 tier).'
+      )}`,
+    });
+  } else if (lower.includes('self-contained') || lower.includes('₦35,000')) {
+    actions.push({
+      label: '💬 Book Self-Contained (₦35,000) on WhatsApp',
+      type: 'whatsapp',
+      url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
+        'Hello Clean Am Correct, I want to book cleaning for a Room (Self-contained) (₦35,000).'
+      )}`,
+    });
+  } else if (lower.includes('4-bedroom') || lower.includes('to be confirmed')) {
+    actions.push({
+      label: '💬 Confirm 4-Bedroom Quote on WhatsApp',
+      type: 'whatsapp',
+      url: `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(
+        'Hello Clean Am Correct, I have a 4-Bedroom property and want to confirm quote and inspection.'
       )}`,
     });
   }
+
+  // Always offer WhatsApp or Online Booking
+  if (actions.length === 0) {
+    actions.push({
+      label: '💬 Book via WhatsApp',
+      type: 'whatsapp',
+      url: siteConfig.whatsappLink,
+    });
+  }
+
+  actions.push({
+    label: '💳 Book Online via Portal',
+    type: 'payment',
+  });
 
   return actions.slice(0, 2);
 }
 
 /**
  * Intelligent Multi-Turn Generative Reasoning Engine (Zero-Latency Fallback)
- * Simulates human-level Claude/ChatGPT conversational depth with contextual multi-turn memory.
+ * Powered by Clean Am Correct Official Price List.
  */
 function generateContextualAIResponse(
   userQuery: string,
   history: ChatMessage[]
 ): string {
   const query = userQuery.trim().toLowerCase();
-  const lastUserMessages = history
-    .filter((m) => m.role === 'user')
-    .map((m) => m.content.toLowerCase());
-  const previousQuery = lastUserMessages.length > 1 ? lastUserMessages[lastUserMessages.length - 2] : '';
 
   // 1. Stain removal / Cleaning Advice (like ChatGPT / Claude)
   if (
@@ -115,46 +140,43 @@ function generateContextualAIResponse(
     query.includes('odor') ||
     query.includes('clean my')
   ) {
-    return `That's a great question! Here is how professional cleaning experts handle that:\n\n1. **For stubborn grease or red oil on kitchen tiles**: Apply a warm degreaser or a paste of baking soda and liquid soap. Allow it to sit for 8–10 minutes to break the molecular bond before wiping with a microfiber cloth.\n2. **For discolored tile grout**: Avoid harsh undiluted acids that eat the cement. Instead, use an alkaline grout cleaner or hydrogen peroxide scrub with a stiff bristle brush.\n3. **For fabric or sofa spills**: Blot immediately with an absorbent towel—never scrub aggressively, as friction pushes the stain deeper into the weave.\n\n💡 **Pro Tip**: If the grime has built up over months, our **Clean Am Correct Deep Cleaning** team uses industrial descalers and motorized tile scrubbing equipment to restore surfaces to like-new condition across Ikorodu. Would you like a deep clean quote?`;
+    return `That's a great question! Here is how professional cleaning experts handle that:\n\n1. **For stubborn red oil or grease on tiles**: Apply a warm degreaser or a paste of baking soda and dishwashing liquid. Let it sit for 8–10 minutes to emulsify the oils before wiping down with a clean microfiber cloth.\n2. **For bathroom tile grout**: Avoid harsh undiluted acids that corrode the cement line. Instead, use an alkaline tile cleaner or hydrogen peroxide scrub with a stiff bristle brush.\n3. **For fabric or sofa spills**: Blot immediately with an absorbent towel—never rub vigorously, as friction spreads the stain into the fabric fibers.\n\n💡 **Pro Tip**: If your space needs a fresh reset, our **Clean Am Correct** team arrives with commercial equipment and degreasers to restore your floors and restrooms across Ikorodu. Check our **Official Price List** anytime for rates!`;
   }
 
-  // 2. Discounts, Negotiating, or Recurring Cleanings
-  if (
-    query.includes('discount') ||
-    query.includes('cheaper') ||
-    query.includes('negotiate') ||
-    query.includes('reduce') ||
-    query.includes('budget') ||
-    query.includes('promo') ||
-    query.includes('offer')
-  ) {
-    return `We understand wanting the best value for your hard-earned money! Here is how we make our premium service affordable for you:\n\n• **Recurring Cleaning Discount**: When you schedule a **Weekly** or **Bi-Weekly** maintenance plan with Clean Am Correct, you save up to **15% to 20%** compared to one-off bookings.\n• **Transparent Deposit System**: You only need to pay the initial booking deposit (starting at **₦8,000** for residential or **₦15,000** for deep clean) to secure your date. The remaining balance is only paid after we finish and you personally inspect your home!\n• **Bundle Packages**: Combining a living room deep clean with window and kitchen cooker detailing is significantly cheaper than ordering individual services.\n\nTell me about your space (number of bedrooms, location in Ikorodu), and I will help tailor the most cost-effective package for you!`;
+  // 2. Specific room / apartment queries from official list
+  if (query.includes('room +') || query.includes('room and bath') || (query.includes('room') && (query.includes('bath') || query.includes('toilet')))) {
+    return `For **Room + Bathroom/Toilet**, our official price is:\n\n• 🚿 **Price**: **₦45,000**\n• Includes complete bedroom detailing, dusting, plus intensive washing, scrubbing, and sanitizing of the attached bathroom and toilet.\n\n${LOCATION_PRICE_NOTICE}`;
   }
 
-  // 3. Multi-turn Follow-up handling (e.g. "what about 3 bedroom?", "what about office?")
-  const isFollowUp =
-    query.startsWith('what about') ||
-    query.startsWith('how about') ||
-    query.startsWith('and for') ||
-    query.startsWith('and a');
-
-  if (isFollowUp || query.includes('3 bedroom') || query.includes('3 bed') || query.includes('three bed')) {
-    if (query.includes('3') || previousQuery.includes('2') || previousQuery.includes('price')) {
-      return `For a **3-Bedroom Flat** in Ikorodu, here are your options:\n\n• 🏠 **Standard Residential Clean**: **₦25,000 – ₦35,000**\n  *(Initial booking deposit: **₦8,000**)*\n  Includes parlor, all 3 bedrooms, sweeping, vacuuming, kitchen counters, sink, and toilet sanitization.\n\n• 🧼 **Intensive Deep Clean**: **₦38,000 – ₦50,000**\n  *(Initial booking deposit: **₦15,000**)*\n  Includes scrubbing stubborn tile grout, cooker/oven degreasing, behind heavy wardrobes and sofa, and window mosquito net washing.\n\nWhich of these two options best fits what your home needs right now?`;
-    }
+  if (query.includes('self contain') || query.includes('self-contain') || query.includes('single room') || (query.includes('room') && !query.includes('bedroom') && !query.includes('house'))) {
+    return `For a **Room (Self-contained)**, our official price is:\n\n• 🏠 **Price**: **₦35,000**\n• Full cleaning of the self-contained room space: floor mopping, dusting, surface wipe, and sanitization.\n\n${LOCATION_PRICE_NOTICE}`;
   }
 
-  // 4. Specific 2-bedroom pricing
-  if (query.includes('2 bedroom') || query.includes('2 bed') || query.includes('two bed')) {
-    return `For a **2-Bedroom Flat** in Ikorodu, here are our exact verified rates:\n\n• 🏠 **Routine Residential Clean**: **₦18,000 – ₦25,000** (Booking Deposit: **₦8,000**)\n  *Perfect for routine maintenance: floors, living room sofa, bathroom scrubbing, bedroom tidying.*\n\n• 🧼 **Intensive Deep Clean**: **₦28,000 – ₦38,000** (Booking Deposit: **₦15,000**)\n  *Recommended if the space hasn't had an intensive scrub in months: includes tile grout, cooker degrease, behind heavy fridges, and window frames.*\n\nYou can lock in your preferred date right now with the online deposit!`;
+  if (query.includes('full house') || query.includes('entire house') || query.includes('whole house')) {
+    return `For a **Full House**, our official price is:\n\n• 🏡 **Price**: **₦50,000**\n• Complete cleaning covering living spaces, kitchen, floor mopping, dusting, and washrooms for standard family houses.\n\n${LOCATION_PRICE_NOTICE}`;
   }
 
-  // 5. Duplex / Large house pricing
-  if (query.includes('duplex') || query.includes('story') || query.includes('storey') || query.includes('mansion') || query.includes('4 bedroom') || query.includes('4 bed')) {
-    return `For a **Duplex or Multi-Storey House** in Ikorodu:\n\n• 🏠 **Routine Residential Maintenance**: **₦35,000 – ₦55,000** (Booking Deposit: **₦8,000**)\n• 🧼 **Full Deep Cleaning & Descaling**: **₦50,000 – ₦75,000+** (Booking Deposit: **₦15,000**)\n• 📦 **Move-In / Move-Out Vacant Detail**: **₦45,000 – ₦70,000** (Booking Deposit: **₦18,000**)\n\nWe dispatch a multi-cleaner crew equipped with industrial vacuums and high-reach tools to ensure your staircase, banisters, balconies, and multiple restrooms are completely spotless.`;
+  if (query.includes('1 bedroom') || query.includes('1-bed') || query.includes('one bedroom') || query.includes('one bed')) {
+    return `For a **1-Bedroom Apartment**, our official price is:\n\n• 🏢 **Price**: **₦45,000**\n• Full clean of parlor/living room, bedroom, kitchen counters, sink, and washroom.\n\n${LOCATION_PRICE_NOTICE}`;
   }
 
-  // 6. Full Price List request
+  if (query.includes('2 bedroom') || query.includes('2-bed') || query.includes('two bedroom') || query.includes('two bed')) {
+    return `For a **2-Bedroom Apartment**, our official price is:\n\n• 🛋️ **Price**: **₦60,000**\n• Complete detailing of living room/parlor, 2 bedrooms, kitchen cabinets and counters, and bathrooms/toilets.\n\n${LOCATION_PRICE_NOTICE}`;
+  }
+
+  if (query.includes('3 bedroom') || query.includes('3-bed') || query.includes('three bedroom') || query.includes('three bed')) {
+    return `For a **3-Bedroom Apartment**, our official price is:\n\n• 🛏️ **Price**: **₦80,000**\n• Detailed clean of spacious parlor, 3 bedrooms, kitchen scrub, balconies, and all bathrooms.\n\n${LOCATION_PRICE_NOTICE}`;
+  }
+
+  if (query.includes('4 bedroom') || query.includes('4-bed') || query.includes('four bedroom') || query.includes('four bed')) {
+    return `For a **4-Bedroom Apartment**:\n\n• 🚪 **Price**: **Price to be confirmed**\n• Because 4-bedroom apartments and duplexes vary in dimensions, compound layout, and number of washrooms, we confirm the exact quote upon inspection or details of your layout.\n\n${LOCATION_PRICE_NOTICE}\n\nChat with our manager on WhatsApp at **07046975466** to get your confirmed quote immediately!`;
+  }
+
+  if (query.includes('5 bedroom') || query.includes('5-bed') || query.includes('five bedroom') || query.includes('five bed')) {
+    return `For a **5-Bedroom Apartment**, our official price is:\n\n• 🏰 **Price**: **₦165,000**\n• Full multi-cleaner intensive detailing for large 5-bedroom apartments, luxury duplexes, or mansions. Covers all 5 bedrooms, grand parlor, dining, kitchen, and multiple bathrooms.\n\n${LOCATION_PRICE_NOTICE}`;
+  }
+
+  // 3. Official Price List request
   if (
     query.includes('price') ||
     query.includes('cost') ||
@@ -164,28 +186,21 @@ function generateContextualAIResponse(
     query.includes('charges') ||
     query.includes('list')
   ) {
-    return `Here is the comprehensive **Clean Am Correct** pricing & booking deposit table:\n\n| Service Category | Online Deposit | Typical Estimated Range |\n|---|---|---|\n| 🏠 **Residential Cleaning** | **₦8,000** | ₦12,000 – ₦35,000 |\n| 🧼 **Intensive Deep Cleaning** | **₦15,000** | ₦25,000 – ₦65,000+ |\n| 🏢 **Commercial / Office** | **₦20,000** | ₦35,000 – ₦85,000+ |\n| 📦 **Move-In / Move-Out** | **₦18,000** | ₦25,000 – ₦55,000 |\n| 🎉 **Post-Event Clean** | **₦12,000** | ₦20,000 – ₦50,000 |\n\n💡 **How it works**:\n1. Choose your service and pay the starting booking deposit online via **Paystack** to reserve your spot on our schedule.\n2. Our fully equipped crew arrives at your door in Ikorodu.\n3. The deposit is deducted from your final total, and you only pay the balance once you are 100% happy with the result!`;
+    return `${FORMATTED_OFFICIAL_PRICE_LIST}\n\nWould you like to book for any of these options or confirm logistics for your location in Ikorodu?`;
   }
 
-  // 7. Location & Areas in Ikorodu
+  // 4. Transportation / Location charges notice
   if (
-    query.includes('location') ||
-    query.includes('where') ||
-    query.includes('area') ||
-    query.includes('ikorodu') ||
-    query.includes('agric') ||
-    query.includes('ebute') ||
-    query.includes('ogolonto') ||
-    query.includes('igbogbo') ||
-    query.includes('owutu') ||
-    query.includes('haruna') ||
-    query.includes('bayeku') ||
-    query.includes('majidun')
+    query.includes('transport') ||
+    query.includes('logistics') ||
+    query.includes('notice') ||
+    query.includes('distant') ||
+    query.includes('location')
   ) {
-    return `We are headquartered right in **Ikorodu, Lagos State**! 📍\n\nOur mobile cleaning teams provide prompt on-site service across all major districts:\n• **Ebute & Ikorodu Central**\n• **Agric, Ogolonto & Majidun**\n• **Igbogbo, Bayeku & Offin**\n• **Owutu, Haruna & Isawo**\n• **Lagos Mainland & Ketu/Mile 12 axis** upon request\n\nNo matter where you are in Ikorodu, our team arrives punctually with all required industrial tools. Where is your property located?`;
+    return `${LOCATION_PRICE_NOTICE}\n\nWe operate across Ikorodu (Ebute, Agric, Ogolonto, Igbogbo, Bayeku, Owutu, Haruna, Majidun) and nearby Lagos Mainland areas. Where is your space located?`;
   }
 
-  // 8. Cleaning materials / Do I need to buy anything?
+  // 5. Equipment & Supplies
   if (
     query.includes('soap') ||
     query.includes('detergent') ||
@@ -196,28 +211,16 @@ function generateContextualAIResponse(
     query.includes('provide') ||
     query.includes('bring')
   ) {
-    return `**You do not need to provide or purchase anything!** 🧰\n\nOur cleaners arrive fully stocked with professional-grade supplies:\n• High-suction commercial vacuum cleaners\n• Hygienic, color-coded microfiber towels and mop sets (preventing cross-contamination between bathrooms and kitchens)\n• Heavy-duty grease cutters, bathroom tile descalers, and disinfectant floor wash\n• High-reach dusters, glass polish, and scrubbing pads\n\nAll our cleaning detergents are safe for families, children, and pets. You just sit back and let us do the heavy lifting!`;
+    return `**You do not need to provide or buy anything!** 🧰\n\nOur team arrives fully equipped with commercial-grade vacuums, hygienic color-coded microfiber mops, heavy-duty degreasers, bathroom descalers, and sanitizers. Everything is covered in the service!`;
   }
 
-  // 9. Are cleaners trustworthy / vetting?
-  if (
-    query.includes('trust') ||
-    query.includes('safe') ||
-    query.includes('vet') ||
-    query.includes('stealing') ||
-    query.includes('security') ||
-    query.includes('reliable')
-  ) {
-    return `Security and peace of mind are our #1 foundation. 🛡️\n\n• **Rigorous Background Vetting**: Every cleaner is thoroughly screened, identity-verified, and reference-checked before joining Clean Am Correct.\n• **Professional Training**: Our staff is trained in privacy protocols, discreet handling of personal belongings, and professional etiquette.\n• **Satisfaction Guarantee**: We walk through your property with you before wrapping up. If you notice any area that needs an extra touch, we rectify it on the spot with zero fuss.\n\nYou can trust us completely with your home and office.`;
-  }
-
-  // 10. Greetings & Identity
+  // 6. Greetings & Identity
   if (/^(hi|hello|hey|good\s*(morning|afternoon|evening)|who are you|what can you do)/.test(query)) {
-    return `Hello! 👋 I'm **Am-Bot**, your dedicated AI cleaning assistant for **Clean Am Correct**.\n\nJust like Claude and ChatGPT, I can:\n• 💰 Provide instant price quotes and custom estimates for flats, duplexes, or offices in Ikorodu\n• 🧼 Explain our deep cleaning and move-in procedures\n• 🧪 Share professional stain removal and household maintenance tips\n• 💳 Help you book and pay your reservation deposit online\n\nWhat would you like assistance with today?`;
+    return `Hello! 👋 I'm **Am-Bot**, your dedicated AI cleaning assistant for **Clean Am Correct**.\n\nJust like Claude and ChatGPT, I can help you with:\n• 💰 Providing our **Official Price List** (from ₦35,000 for self-contained to ₦165,000 for 5-bedroom)\n• 🧼 Explaining cleaning procedures and scheduling\n• 🧪 Giving stain removal and household hygiene advice\n• 📍 Checking location logistics across Ikorodu\n\nHow can I help you today?`;
   }
 
-  // 11. General conversational fallback
-  return `Thank you for asking! At **Clean Am Correct**, we take pride in delivering immaculate living and working spaces across Ikorodu.\n\nWhether you need:\n• 🏠 **Routine Residential Maintenance** (from ₦12,000)\n• 🧼 **Intensive Deep Cleaning** (from ₦25,000)\n• 🏢 **Office Workspace Detailing** (from ₦35,000)\n• 📦 **Move-In / Move-Out Turnover** (from ₦25,000)\n\nCould you tell me a little more about your space (e.g. how many bedrooms or what kind of cleaning you have in mind), and I'll give you a tailored breakdown and price estimate?`;
+  // 7. General fallback with official price schedule
+  return `Thank you for asking! Here is our **Official Price Schedule**:\n\n${FORMATTED_OFFICIAL_PRICE_LIST}\n\nTell me about your property, and I'll help you lock in an appointment!`;
 }
 
 /**
@@ -330,7 +333,7 @@ export async function streamAIChatResponse({
     onChunk(streamedText);
 
     // Natural streaming cadence (20ms to 35ms per token like Claude / ChatGPT)
-    const delay = words[i].includes('\n') ? 45 : words[i].length > 6 ? 28 : 18;
+    const delay = words[i].includes('\n') ? 40 : words[i].length > 6 ? 26 : 16;
     await new Promise((res) => setTimeout(res, delay));
   }
 
